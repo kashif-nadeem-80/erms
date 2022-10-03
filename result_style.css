@@ -1,0 +1,404 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.fixed-top{
+    transition: all 0.5s ease;
+    animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-top {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.whatsapp{
+    position: fixed;
+    height: 50px;
+    width: 48px;
+    background: #25D366;
+    right: 20px;
+    bottom: 40px;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    z-index: 9999;
+    font-size: 40px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.whatsapp:hover{
+    color: white;
+}
+
+/* Header */
+
+header{
+    width: 100%;
+}
+
+.top-navbar{
+    padding: 10px 0;
+}
+
+.top-navbar .icon i{
+    font-size: 30px;
+}
+
+.top-navbar .phone-numbers a,
+.top-navbar .email-address a{
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s ease;
+}
+
+.top-navbar .phone-numbers a:hover,
+.top-navbar .email-address a:hover{
+    color: #FF9C3A;
+}
+
+.top-navbar .social-contact{
+    align-content: center;
+}
+
+.top-navbar .social-contact div i{
+    font-size: 30px;
+    margin: 0 6px;
+    cursor: pointer;
+}
+
+.top-navbar .social-contact .facebook i{
+    color: #4267B2;
+}
+
+.top-navbar .social-contact .twitter i{
+    color: #00acee;
+}
+
+.top-navbar .social-contact .instagram i{
+    color:  #3f729b;
+}
+
+.lower-navbar{
+    background-color: rgb(24, 24, 158);
+    padding: 10px 0;
+}
+
+.lower-navbar .navbar-brand{
+    width: 300px;
+}
+
+.lower-navbar .nav-item{
+    align-self: center;
+    margin: 0 5px;
+    font-size: 16px;
+    transition: all 0.5s ease;
+}
+
+.lower-navbar .nav-item:hover,
+.lower-navbar .nav-item .active{
+    color: #FF9C3A!important;
+    border-bottom: 2px solid #FF9C3A;
+}
+
+.lower-navbar .nav-item:hover .nav-link{
+    color: #FF9C3A!important;
+}
+
+.lower-navbar .nav-item .nav-link{
+    color: white;
+}
+
+.lower-navbar .nav-item .nav-link:hover{
+    color: white;
+}
+
+.lower-navbar .btn-value{
+    background-color: #FF9C3A;
+    border: 1px solid #FF9C3A;
+    color: white;
+}
+
+.lower-navbar .btn-value:hover{
+    background-color: white;
+    color: #ff8a16;
+}
+
+.lower-navbar .navbar .navbar-toggler{
+    outline: none;
+    border: none;
+}
+
+.lower-navbar .navbar .navbar-toggler .line{
+    background-color: white;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.lower-navbar .navbar .toggle .line1{
+	transform: rotate(-45deg) translate(-5px, 6px);
+}
+.lower-navbar .navbar .toggle .line2{
+	opacity: 0;
+}
+.lower-navbar .navbar .toggle .line3{
+	transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/* Home Content */
+.carousel-caption-value {
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #111;
+    width: 48%;
+}
+
+.carousel .turkey-scholarship .scholarship-text{
+    color: #ec4400;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px #111;
+}
+
+.carousel .turkey-scholarship h2{
+    font-size: 44px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #111;
+}
+
+.carousel .turkey-scholarship .turkey{
+    color: #ff4d17;
+    font-size: 38px;
+}
+
+.carousel .turkey-scholarship p{
+    color: white;
+    text-shadow: 1px 1px 2px #111;
+    font-size: 28px;
+}
+
+.carousel .testing-service{
+    font-size: 32px;
+    color: white;
+    text-shadow: 1px 1px 2px #111;
+}
+
+.carousel .testing-service h2{
+    font-size: 44px;
+    color: #ff4d17;
+}
+
+.carousel .carousel-caption-value .btn-value{
+    font-size: 18px;
+    padding: 10px;
+    background: #FF9C3A;
+    color: white;
+    text-shadow: 1px 1px 2px #111;
+    box-shadow: 1px 1px 2px #222, 2px 2px 4px #333;
+    border-radius: 8px;
+    margin: 0 2px;
+}
+
+.carousel .carousel-caption-value .btn-value:hover{
+    background: linear-gradient(#ff9020,#FF9C3A);
+    color: white;
+    box-shadow: 1px 1px 2px #222, 2px 2px 4px white;
+}
+
+.carousel-control-next .carousel-control-next-icon,
+.carousel-control-prev .carousel-control-prev-icon{
+    display: none;
+    transition: all 0.5s;
+}
+.carousel:hover .carousel-control-next .carousel-control-next-icon,
+.carousel:hover .carousel-control-prev .carousel-control-prev-icon{
+    display: block;
+    background-color: black!important;
+    border-radius: 50%;
+}
+.carousel-control-next .carousel-control-next-icon{
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.carousel-control-prev .carousel-control-prev-icon{
+    margin-right: auto;
+    margin-left: 5px;
+}
+
+footer {
+    background: #014073;
+    padding: 14px 0 10px;
+    color: white;
+}
+
+.footer-container{
+    width: 92%;
+    margin: 0 auto;
+}
+
+footer .footer-container .about p{
+    text-align: justify;
+}
+
+footer .footer-container .useful-links ul{
+    list-style: none;
+}
+
+footer .footer-container .useful-links ul li{
+    margin: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5 ease;
+}
+
+footer .footer-container .useful-links ul li:hover{
+    border-bottom: 2px solid #ff8a1688;
+}
+
+
+@media (max-width: 1200px){
+    .carousel-caption-value {
+        top: 7%;
+        color: #111;
+        width: 52%;
+    }
+    .carousel .turkey-scholarship .scholarship-text{
+        font-size: 24px;
+    }
+    .carousel .turkey-scholarship h2{
+        font-size: 40px;
+    }
+    .carousel .turkey-scholarship .turkey{
+        font-size: 34px;
+    }
+    
+    .carousel .turkey-scholarship p{
+        font-size: 24px;
+    }
+
+    .carousel .testing-service{
+        font-size: 28px;
+    }
+
+    .carousel .testing-service p{
+        font-size: 24px;
+    }
+    
+    .carousel .testing-service h2{
+        font-size: 40px;
+    }
+    .carousel .carousel-caption-value .btn-value{
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width: 990px){
+    .carousel-caption-value {
+        top: 5%;
+        color: #111;
+        width: 55%;
+    }
+    .carousel .turkey-scholarship .scholarship-text{
+        font-size: 22px;
+    }
+    .carousel .turkey-scholarship h2{
+        font-size: 38px;
+    }
+    .carousel .turkey-scholarship .turkey{
+        font-size: 32px;
+    }
+    
+    .carousel .turkey-scholarship p{
+        font-size: 22px;
+    }
+
+    .carousel .testing-service{
+        font-size: 26px;
+    }
+
+    .carousel .testing-service p{
+        font-size: 22px;
+    }
+    
+    .carousel .testing-service h2{
+        font-size: 38px;
+    }
+    .carousel .carousel-caption-value .btn-value{
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .top-navbar .phone-numbers a,
+    .top-navbar .email-address a{
+        font-size: 14px;
+    }
+    .lower-navbar .nav-item{
+        margin: 4px 5px;
+        font-size: 18px;
+        transition: all 0.5s ease;
+    }
+    .lower-navbar .nav-btn{
+        text-align: center;
+    }
+}
+
+
+
+@media (max-width: 769px){
+    .top-navbar{
+        display: none;
+    }
+}
+
+@media (max-width: 500px){
+    .navbar{
+        padding: .5rem 0;
+    }
+    .lower-navbar .navbar-brand{
+        width: 250px;
+    }
+    .lower-navbar .navbar .navbar-toggler .line{
+        width: 22px;
+        height: 3px;
+        margin: 5px;
+    }
+}
+
+@media (max-width: 425px){
+    .lower-navbar .navbar-brand{
+        width: 220px;
+        margin-left: 0px;
+    }
+    .lower-navbar .navbar .navbar-toggler{
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 370px){
+    .lower-navbar .navbar-brand{
+        width: 190px;
+    }
+}
+
+@media (max-width: 320px){
+    .lower-navbar .navbar-brand{
+        width: 180px;
+    }
+}
