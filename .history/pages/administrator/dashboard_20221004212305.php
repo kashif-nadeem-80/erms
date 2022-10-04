@@ -2,7 +2,7 @@
 
 include('includes/header.php');
 print_r($_SESSION);
-echo $_SESSION['admin'];
+echo $_SESSION["2"];
 
 ?>
 

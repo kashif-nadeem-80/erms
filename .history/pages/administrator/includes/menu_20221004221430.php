@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!isset($_SESSION['admin']) || $_SESSION['user_login_status'] != 1) {
+if (!isset($_SESSION['admin'])) {
 
   echo "<script>window.location.href = '../../index.php'; </script>";
   echo "<script> alert 'Check here....' </script>";

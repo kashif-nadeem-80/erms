@@ -253,7 +253,7 @@ include "includes/header.php";
                 <div class="col-md-4">
                   <div class="form-group">
                     <label>Profile Image</label>
-                    <input id="file1" name="logo1" required onchange="showImage1(event)" type="file"
+                    <input id="file1" name="logo1" onchange="showImage1(event)" type="file"
                     accept="image/*" class="form-control" style="overflow: hidden;"
                     placeholder="Insert Your Image">
                   </div>

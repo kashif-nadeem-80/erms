@@ -3,8 +3,7 @@ include('includes/db.php');
 //include('includes/css_links.php');
 session_start();
 ob_start();
-// echo $_SESSION["admin"];
-print_r($_SESSION);
+echo $_SESSION['1'];
 if(isset($_SESSION['admin']))
 {
 	echo "<script>window.location.href = 'pages/administrator/dashboard.php'; </script>";

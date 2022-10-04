@@ -1,6 +1,7 @@
 <?php
 include('includes/header.php');
-
+print_r($_SESSION);
+echo $_SESSION['admin'];
 ?>
 <style type="text/css">
   .inner:hover {

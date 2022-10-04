@@ -3,7 +3,7 @@ include('includes/db.php');
 //include('includes/css_links.php');
 session_start();
 ob_start();
-// echo $_SESSION["admin"];
+echo $_SESSION["admin"];
 print_r($_SESSION);
 if(isset($_SESSION['admin']))
 {

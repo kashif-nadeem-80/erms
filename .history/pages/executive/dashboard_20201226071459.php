@@ -1,6 +1,5 @@
 <?php
 include('includes/header.php');
-
 ?>
 <style type="text/css">
   .inner:hover {
