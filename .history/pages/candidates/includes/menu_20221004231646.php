@@ -97,7 +97,7 @@
       
  <li class="nav-item">
  <a href="candidate_apply_info2.php?apply_id=<?php echo $canddate_id ?>&proj_id=<?php echo "33" ?>" 
- class="nav-link " > 
+ class="nav-link ">
   <i class="nav-icon fa fa-scroll"></i>
             <p>
              Final Application
@@ -107,10 +107,10 @@
          
         
         <li class="nav-item">
-          <a href="change_city.php" class="nav-link <?php if($curPageName == 'change_city.php') echo "active" ?>">
+          <a href="change_password.php" class="nav-link <?php if($curPageName == 'change_city.php') echo "active" ?>">
             <i class="nav-icon fa fa-exchange-alt"></i>
             <p>
-             Change Test City
+             Change City
             </p>
           </a>
         </li>

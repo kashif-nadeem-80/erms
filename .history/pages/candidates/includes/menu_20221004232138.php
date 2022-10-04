@@ -110,7 +110,7 @@
           <a href="change_city.php" class="nav-link <?php if($curPageName == 'change_city.php') echo "active" ?>">
             <i class="nav-icon fa fa-exchange-alt"></i>
             <p>
-             Change Test City
+             Change City
             </p>
           </a>
         </li>
