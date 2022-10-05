@@ -886,7 +886,7 @@ $challan_pathNew    = "../../images/candidates/challans/".$challan_file;
 
 move_uploaded_file($temp_file,$challan_pathNew);
 
-// $update = "UPDATE candidate_applied_post SET challan_file = '$challan_file', challan_upload_date = '$date' WHERE id = '$apply_id'";
+$update = "UPDATE candidate_applied_post SET challan_file = '$challan_file', challan_upload_date = '$date' WHERE id = '$apply_id'";
 
 $run = mysqli_query($connection, $update);
 

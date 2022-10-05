@@ -69,7 +69,7 @@
         </li> -->
 
         <li class="nav-item">
-          <a href="apply.php" class="nav-link <?php if($curPageName == 'apply.php' OR $curPageName == 'post_apply.php' OR $curPageName == 'candidate_bank_challan.php' ) echo "active" ?>">
+          <a href="apply.php" class="nav-link <?php if($curPageName == 'apply.php' OR $curPageName == 'post_apply.php' OR $curPageName == 'candidate_bank_challan.php' OR $curPageName == 'candidate_apply_info2.php') echo "active" ?>">
             <i class="nav-icon fa fa-tasks"></i>
             <p>
             Posts to Apply 
@@ -107,7 +107,7 @@
       
  <li class="nav-item">
  <a href="candidate_apply_info2.php?apply_id=<?php echo $canddate_id ?>&proj_id=<?php echo "33" ?>" 
- class="nav-link <?php if($curPageName == 'candidate_apply_info2.php') echo "active" ?> " > 
+ class="nav-link <?php if($curPageName == 'change_city.php') echo "active" ?> " > 
   <i class="nav-icon fa fa-scroll"></i>
             <p>
              Final Application

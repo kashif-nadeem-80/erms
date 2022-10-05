@@ -31,9 +31,9 @@ $proj_id = $_GET['proj_id'];
 
         <ol class="breadcrumb float-md-right">
 
-          <li class="breadcrumb-item active"><a href="index.php">Home /</a></li>
+          <li class="breadcrumb-item active"><a href="index.php">Home</a></li>
 
-          <!-- <li class="breadcrumb-item active">...</li> -->
+          <li class="breadcrumb-item active">...</li>
 
         </ol>
 

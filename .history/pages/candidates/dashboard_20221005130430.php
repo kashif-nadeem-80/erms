@@ -15,7 +15,7 @@ opacity: 0.6;
           <div class="col-md-12">
            <p> <span style="font-size:x-large ; font-weight:bolder; padding-right: 100px;"> 
             How to Apply </span> <span style="align-items:center ;">  
-             <a href="change_city.php" style="width:150px ; align-items: center;" class="btn  badge-pill badge-success shadow" >Change Test City</a>  
+             <a href="change_city.php" style="width:200px ; align-items: center;" class="btn  badge-pill  shadow" >Change Test City</a>  
             </span> </p> 
             <div style="border: 1px solid lightblue; width: 100%"></div>
             <br>
