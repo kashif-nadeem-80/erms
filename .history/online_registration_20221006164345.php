@@ -5,19 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
   <head>
- <script type="text/css">
-          .blink {
-          animation: blinker 1s step-start infinite;
-        }
-
-        @keyframes blinker {
-          50% {
-            opacity: 0;
-          }
-        }
-    </script>
-    <?php
-     include 'includes/css_links.php'; ?>
+    <?php include 'includes/css_links.php'; ?>
     <title>UTS || Sign In</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
   </head>
@@ -41,10 +29,7 @@ session_start();
           <div class="card">
             <div class="card-body" >
               <!--<p style="margin-top: -10px; margin-bottom: 40px">Have an account | <b> Sign in </b></p>-->
-              <p  style="margin-top: -10px; margin-bottom: 20px">Have an account Or 
-              <a href="#" class="btn badge-pill badge-success shadow bg-gradient-info" class="blink"  
-              style="font-size:large; font-weight:bold; line-height: 0.8; " onclick="registDiv()"> Register Here </a> 
-            </p> 
+              <p style="margin-top: -10px; margin-bottom: 20px">Have an account Or <a href="#" onclick="registDiv()"> Register Here </a> </p> 
               <form method="post" id="register_form">
                 <div class="row">
                   <div class="col-md-1"></div>
@@ -138,7 +123,7 @@ function registDiv() {
           <center class="bg-success rounded m-2 p-3" style="display: none" id="signUpMsg"><b>Account successfully created, please go to your email to verify your account</b></center>
           <div class="card shadow">
             <div class="card-body">
-              <p style="margin-top: -10px; margin-bottom: 40px">New User | <b> <a onclick="registDiv()"> Register Here </a></b></p>
+              <p style="margin-top: -10px; margin-bottom: 40px">New User asd |  <a style="font-weight: 700;" onclick="registDiv()"> Register Here adfasfs</a></p>
               <form method="post" id="captcha_form">
                 <div class="row">
                   <div class="col-md-4">

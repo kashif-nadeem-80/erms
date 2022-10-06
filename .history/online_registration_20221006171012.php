@@ -42,7 +42,7 @@ session_start();
             <div class="card-body" >
               <!--<p style="margin-top: -10px; margin-bottom: 40px">Have an account | <b> Sign in </b></p>-->
               <p  style="margin-top: -10px; margin-bottom: 20px">Have an account Or 
-              <a href="#" class="btn badge-pill badge-success shadow bg-gradient-info" class="blink"  
+              <a href="#" class="btn badge-pill badge-success shadow bg-gradient-info"  
               style="font-size:large; font-weight:bold; line-height: 0.8; " onclick="registDiv()"> Register Here </a> 
             </p> 
               <form method="post" id="register_form">

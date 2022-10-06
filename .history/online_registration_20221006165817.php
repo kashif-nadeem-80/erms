@@ -5,19 +5,7 @@ session_start();
 <!DOCTYPE html>
 <html>
   <head>
- <script type="text/css">
-          .blink {
-          animation: blinker 1s step-start infinite;
-        }
-
-        @keyframes blinker {
-          50% {
-            opacity: 0;
-          }
-        }
-    </script>
-    <?php
-     include 'includes/css_links.php'; ?>
+    <?php include 'includes/css_links.php'; ?>
     <title>UTS || Sign In</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
   </head>
@@ -41,10 +29,7 @@ session_start();
           <div class="card">
             <div class="card-body" >
               <!--<p style="margin-top: -10px; margin-bottom: 40px">Have an account | <b> Sign in </b></p>-->
-              <p  style="margin-top: -10px; margin-bottom: 20px">Have an account Or 
-              <a href="#" class="btn badge-pill badge-success shadow bg-gradient-info" class="blink"  
-              style="font-size:large; font-weight:bold; line-height: 0.8; " onclick="registDiv()"> Register Here </a> 
-            </p> 
+              <p  style="margin-top: -10px; margin-bottom: 20px">Have an account Or <a href="#" class="btn  badge-pill badge-success shadow " style=" text-underline-position: below;  font-size:large; font-weight:bold ;" onclick="registDiv()"> Register Here </a> </p> 
               <form method="post" id="register_form">
                 <div class="row">
                   <div class="col-md-1"></div>

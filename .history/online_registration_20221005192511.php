@@ -5,46 +5,30 @@ session_start();
 <!DOCTYPE html>
 <html>
   <head>
- <script type="text/css">
-          .blink {
-          animation: blinker 1s step-start infinite;
-        }
-
-        @keyframes blinker {
-          50% {
-            opacity: 0;
-          }
-        }
-    </script>
-    <?php
-     include 'includes/css_links.php'; ?>
+    <?php include 'includes/css_links.php'; ?>
     <title>UTS || Sign In</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
   </head>
-  <body style="padding-top: 70px; background: #e6e6e6; overflow-x: hidden; background-image: url(images/loginbg.jpg);">
-    <div class="row  bg-gradient-olive " style="padding-left:15px ;" >
-      <div class="col-md-1"   ></div>
-      <!-- <div class="col-md-7" > -->
-        <img src="images/logo.png" width="70px" height="70px">   
-        <h3 style=" margin-top: 20px; margin-left: 10px; color: #FFFFFF; font-weight:400px" >Universal Testing Services</h3>
+  <body style="background: #e6e6e6; overflow-x: hidden; background-image: url(images/loginbg.jpg);">
+    <div class="row bg-white">
+      <div class="col-md-1"></div>
+      <div class="col-md-7" class="hidden-md-down">
+        <img src="images/logo.png" width="70px" height="70px"> <h4>Universal Testing Services</h4>
       </div>
-      <!-- <div class="col-md-10  text-black-50"
-        style="margin-top: 1%;  text-shadow: 0 1 2px #0000FF; font-family: time new roman;" >
-      
+      <!-- <div class="col-md-10 text-left"
+        style="margin-top: 1%; background-image: image() ; text-shadow: 0 1 2px #0000FF; font-family: time new roman;" >
+        <h3>Universal Testing Services</h3>
       </div> -->
-    <!-- </div> -->
+    </div>
     <br>
     <div class="row" id="signIn">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <div class="container" >
+        <div class="container">
           <div class="card">
             <div class="card-body" >
               <!--<p style="margin-top: -10px; margin-bottom: 40px">Have an account | <b> Sign in </b></p>-->
-              <p  style="margin-top: -10px; margin-bottom: 20px">Have an account Or 
-              <a href="#" class="btn badge-pill badge-success shadow bg-gradient-info" class="blink"  
-              style="font-size:large; font-weight:bold; line-height: 0.8; " onclick="registDiv()"> Register Here </a> 
-            </p> 
+              <p style="margin-top: -10px; margin-bottom: 20px">Have an account Or <a href="#" onclick="registDiv()"> Register Here </a> </p> 
               <form method="post" id="register_form">
                 <div class="row">
                   <div class="col-md-1"></div>
@@ -63,7 +47,7 @@ session_start();
                   </div>
                   <div class="col-md-2">
                     <div class="form-group">
-                      <input style="width:140px ;" type="submit" name="login" class="btn btn-info shadow" value="Sign In">
+                      <input type="submit" name="login" class="btn btn-info shadow" value="Sign In">
                     </div>
                   </div>
                   <div class="col-md-1"></div>
