@@ -1,10 +1,10 @@
 <?php
 include('includes/db.php');
-include('includes/css_links.php');
+//include('includes/css_links.php');
 session_start();
 ob_start();
 // echo $_SESSION["admin"];
-// print_r($_SESSION);
+print_r($_SESSION);
 if(isset($_SESSION['admin']))
 {
 	echo "<script>window.location.href = 'pages/administrator/dashboard.php'; </script>";
@@ -135,7 +135,6 @@ else
 															$rowData  = mysqli_fetch_array($runData);
 															$user_id  = $rowData['id'];
 															$status = $rowData['status'];
-															
 															if($status == '1')
 															{
 																// ======== Admin =============

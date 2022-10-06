@@ -340,7 +340,7 @@ opacity: 0.6;
 
 
 
-<?php include('includes/footer.php') ?>
+<?php //include('includes/footer.php') ?>
 
 <script type="text/javascript">
 

@@ -1,10 +1,10 @@
 <?php
 include('includes/db.php');
-include('includes/css_links.php');
+//include('includes/css_links.php');
 session_start();
 ob_start();
 // echo $_SESSION["admin"];
-// print_r($_SESSION);
+print_r($_SESSION);
 if(isset($_SESSION['admin']))
 {
 	echo "<script>window.location.href = 'pages/administrator/dashboard.php'; </script>";
@@ -149,7 +149,7 @@ else
 																		{
 																			setcookie("rememberAcount",$username,time()+ (10 * 365 * 24 * 60 * 60));
 																			setcookie("member_password",$password,time()+ (10 * 365 * 24 * 60 * 60));
-																		}
+																		}v
 																		else
 																		{
 																			if(isset($_COOKIE["rememberAcount"]))

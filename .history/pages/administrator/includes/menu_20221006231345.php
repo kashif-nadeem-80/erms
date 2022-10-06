@@ -1,13 +1,12 @@
 <?php
 
 session_start();
-// $_SESSION['name']='kashif';
-// echo "asdddddddddddddddddd".  print_r($_SESSION, TRUE) ;
+$_SESSION['name']='kashif';
+echo "asdddddddddddddddddd".  print_r($_SESSION, TRUE) ;
 
-// if (!isset($_SESSION['admin']) || $_SESSION['user_login_status'] != 1) {
-if (!isset($_SESSION['admin']) ) {
+if (!isset($_SESSION['admin']) || $_SESSION['user_login_status'] != 1) {
 
-  echo "<script>window.location.href = '../../index.php'; </script>";
+  // echo "<script>window.location.href = '../../index.php'; </script>";
   echo "<script> alert 'Check here....' </script>";
 
 }
