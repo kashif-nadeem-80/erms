@@ -22,11 +22,7 @@ opacity: 0.6;
 
   <div class="container-fluid">
 
-    <h2></h2> 
-    <p> <span style="font-size:xx-large ; font-weight:bolder; padding-right: 580px;"> 
-    Administration Dashboard </span> <span  style="align-items:center ;">  
-             <a href="applications_status.php" style="width:150px ; align-items: center;" class="btn  badge-pill badge-success shadow" >Search</a>  
-            </span> </p> 
+    <h2>Administration Dashboard</h2> <button class="btn-info"> </button>
 
     <div class="card"> 
 

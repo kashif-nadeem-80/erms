@@ -111,7 +111,7 @@ if(isset($_POST['postId']) && isset($_POST['cnic']))
   <tbody>
     <?php
       $fetchData = "SELECT cp.id AS apply_id, c.id AS cand_id, c.name, c.cnic, c.phone, c.f_name, c.gender, c.image, ct.c_name, cp.apply_date, cp.status,
-      cp.status_details, cp.challan_file, cp.challan_upload_date FROM candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id INNER JOIN projects_posts AS pp ON pp.id = cp.post_id LEFT JOIN city AS ct ON ct.id = cp.city_id WHERE cp.post_id = '$postId' AND c.cnic = '$candCNIC'  ORDER BY cp.id ASC";
+      cp.status_details, cp.challan_file, cp.challan_upload_date FROM candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id INNER JOIN projects_posts AS pp ON pp.id = cp.post_id LEFT JOIN city AS ct ON ct.id = cp.city_id WHERE cp.post_id = '$postId' AND c.cnic = '$candCNICc'  ORDER BY cp.id ASC";
       $runQ = mysqli_query($connection,$fetchData);
       $count = 0;
       while ($rowQ = mysqli_fetch_array($runQ)) {
