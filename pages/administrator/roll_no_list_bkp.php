@@ -39,14 +39,7 @@ include "includes/header.php";
 							<tbody>
 								<?php
 								$count = 0;
-								$query = "SELECT c.id AS cand_id, ac.roll_no,c.name,c.f_name,c.gender,c.cnic,c.image,
-                                    pp.post_name,pp.post_bps, BIN(roll_no) AS roll_binary 
-                                    FROM assigned_center AS ac 
-                                        INNER JOIN projects_posts AS pp ON pp.id = ac.post_id 
-                                        LEFT JOIN projects AS pr ON pr.id = pp.project_id
-                                        INNER JOIN candidate_applied_post AS cap ON cap.id = ac.cand_applied_id 
-                                        INNER JOIN candidates AS c ON c.id = cap.candidate_id 
-                                    WHERE ac.roll_no != '0' AND pr.status = '1' ORDER BY ac.roll_no ASC";
+								$query = "SELECT c.id AS cand_id, ac.roll_no,c.name,c.f_name,c.gender,c.cnic,c.image,pp.post_name,pp.post_bps, BIN(roll_no) AS roll_binary FROM assigned_center AS ac INNER JOIN projects_posts AS pp ON pp.id = ac.post_id INNER JOIN candidate_applied_post AS cap ON cap.id = ac.cand_applied_id INNER JOIN candidates AS c ON c.id = cap.candidate_id WHERE ac.roll_no != '0' ORDER BY roll_binary ASC";
 								$runData = mysqli_query($connection,$query);
 								while($rowData = mysqli_fetch_array($runData)) {
 								$count++;

@@ -177,8 +177,8 @@
               class="btn btn-value my-2 my-sm-0"
 
             
-              
-              onclick="window.open('index.php')"
+              onclick="window.open('online_registration.php')"
+              onclick="window.open('online_registration.php')"
 
               type="submit">
 
