@@ -7,7 +7,7 @@ session_start();
 // if (!isset($_SESSION['admin']) || $_SESSION['user_login_status'] != 1) {
 if (!isset($_SESSION['admin']) ) {
 
-  echo "<script>window.location.href = '../../admin.php'; </script>";
+  echo "<script>window.location.href = '../../index.php'; </script>";
   echo "<script> alert 'Check here....' </script>";
 
 }
@@ -253,7 +253,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
             </li>
             <li class="nav-item">
 
-              <a href="challan_thumbnail.php" class="nav-link <?php if ($curPageName == 'challan_thumpnail.php') echo "active bg-primary" ?>">
+              <a href="applications_expire.php" class="nav-link <?php if ($curPageName == 'applications_expire.php') echo "active bg-primary" ?>">
 
                 <i class="far fa-circle nav-icon"></i>
 
