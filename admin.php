@@ -146,6 +146,8 @@ else
 																	if(isset($_SESSION["admin"]))
 																	{
 																		if(!empty($_POST["remember"]))
+														
+														
 																		{
 																			setcookie("rememberAcount",$username,time()+ (10 * 365 * 24 * 60 * 60));
 																			setcookie("member_password",$password,time()+ (10 * 365 * 24 * 60 * 60));
