@@ -275,7 +275,7 @@ $proj_id = $_GET['proj_id'];
 
               <div class="col-md-4">
 
-                <div class="form-group">
+                <div class="form-group">4   
 
                   <label>Candidate CNIC #</label>
 
