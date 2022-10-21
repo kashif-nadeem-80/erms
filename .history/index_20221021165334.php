@@ -336,7 +336,7 @@ Apply Now
                                     <br>
                                     FFBL, FPCL & FML Apprenticeship Program Candidates can check the Accepted /
                                     Rejected Status.
-                                    <a href="online_registration.php" style="width:200px ; align-items: center;"
+                                    <a href="online_registration.php" style="width:250px ; align-items: center;"
                                 class="btn  badge-pill  badge-info shadow">Click to Check Status</a>
                                 </td>
 

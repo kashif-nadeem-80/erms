@@ -4,7 +4,7 @@
   {
     echo "<script>window.location.href = '../../online_registration.php'; </script>";
   }
-  
+ 
   $canddate_id = $_SESSION['candd_id'];
   $curPageName = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
 ?>
@@ -41,23 +41,23 @@
           </a>
         </li> -->
 
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a href="personal_information.php"  class="nav-link <?php if($curPageName == 'personal_information.php') echo "active" ?>">
             <i class="nav-icon fa fa-user-edit"></i>
             <p>
              Update Profile
             </p>
           </a>
-        </li> -->
+        </li>
 
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a href="education_add.php" class="nav-link <?php if($curPageName == 'education_add.php') echo "active" ?>">
             <i class="nav-icon fa fa-user-graduate"></i>
             <p>
               Education
             </p>
           </a>
-        </li> -->
+        </li>
 
         <!-- <li class="nav-item">
           <a href="employement_experince.php" class="nav-link <?php if($curPageName == 'employement_experince.php') echo "active" ?>">
@@ -94,14 +94,15 @@
             </p>
           </a>
         </li> -->
-        <!-- <li class="nav-item">
+        
+        <li class="nav-item">
           <a href="change_city.php" class="nav-link <?php if($curPageName == 'change_city.php') echo "active" ?>">
             <i class="nav-icon fa fa-exchange-alt"></i>
             <p>
              Change Test City
             </p>
           </a>
-        </li> -->
+        </li>
         
       
  <li class="nav-item">
@@ -114,6 +115,7 @@
           </a>
         </li>
          
+
         <li class="nav-item">
           <a href="change_password.php" class="nav-link <?php if($curPageName == 'change_password.php') echo "active" ?>">
             <i class="nav-icon fa fa-keyboard"></i>

@@ -50,14 +50,14 @@
           </a>
         </li> -->
 
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a href="education_add.php" class="nav-link <?php if($curPageName == 'education_add.php') echo "active" ?>">
             <i class="nav-icon fa fa-user-graduate"></i>
             <p>
               Education
             </p>
           </a>
-        </li> -->
+        </li>
 
         <!-- <li class="nav-item">
           <a href="employement_experince.php" class="nav-link <?php if($curPageName == 'employement_experince.php') echo "active" ?>">
@@ -94,14 +94,15 @@
             </p>
           </a>
         </li> -->
-        <!-- <li class="nav-item">
+        
+        <li class="nav-item">
           <a href="change_city.php" class="nav-link <?php if($curPageName == 'change_city.php') echo "active" ?>">
             <i class="nav-icon fa fa-exchange-alt"></i>
             <p>
              Change Test City
             </p>
           </a>
-        </li> -->
+        </li>
         
       
  <li class="nav-item">
@@ -114,6 +115,7 @@
           </a>
         </li>
          
+
         <li class="nav-item">
           <a href="change_password.php" class="nav-link <?php if($curPageName == 'change_password.php') echo "active" ?>">
             <i class="nav-icon fa fa-keyboard"></i>

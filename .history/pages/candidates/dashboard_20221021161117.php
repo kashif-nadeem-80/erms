@@ -32,7 +32,6 @@ include('includes/header.php');
                                         <thead class="bg-gradient-teal">
                                             <tr>
                                                 <th>Status</th>
-                                                <th>Reason of Rejection</th>
                                                 <th>Name</th>
                                                 <th>Father Name</th>
                                                 <th>Post Applied</th>
@@ -45,7 +44,7 @@ include('includes/header.php');
                  
                   $count = 0;
       // echo "this test line";
-      $query2 = "select ct.c_name as city,p.status,p.status_details, c.name as Name, c.f_name as Father_Name,  c.cnic,
+      $query2 = "select ct.c_name as city,p.status, c.name as Name, c.f_name as Father_Name,  c.cnic,
        c.phone CellNo,  pp.post_name
       , pj.project_name as Department
       from candidates as c 
@@ -54,9 +53,7 @@ include('includes/header.php');
       join projects_posts as pp on p.post_id = pp.id
       join projects as pj on pj.id = pp.project_id
       where  ct.test_center_status =1
-      and c.id= '$candd_id' ";
-
-      
+      and c.cnic='42501-1920421-1'";
       $runData = mysqli_query($connection,$query2);
       $countData = mysqli_num_rows($runData);
   // echo $countData;
@@ -72,7 +69,6 @@ include('includes/header.php');
       $father_name = $rowData['Father_Name'];
       $post_name = $rowData['post_name'];
       $department = $rowData['Department'];
-      $status_detail = $rowData['status_details'];
       
        ?>
                                         <tbody>
@@ -82,7 +78,6 @@ include('includes/header.php');
                                                 <td>
                                                 <span><img src="../../images/news1.gif" width="40px" height="40px"></span>  
                                                 <b><?php echo $status_c?></b></td>
-                                                <td><?php echo $status_detail ?></td>
                                                 <td><?php echo $name ?></td>
                                                 <td><?php echo $father_name ?></td>
                                                 <td><?php echo $post_name ?></td>
@@ -125,7 +120,7 @@ include('includes/header.php');
                 <br>
                 <br>
 
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-md-12">
                         <p> <span style="font-size:x-large ; font-weight:bolder; padding-right: 80px;">
                                 How to Apply </span> <span style="align-items:center ;">
@@ -155,7 +150,7 @@ include('includes/header.php');
                         <ul>
                             <li>Not Applicable (N.A)</li>
                             <!-- <li>Upload you Experience Certificate( if Applicable)</li> -->
-                        <!-- </ul>
+                        </ul>
                         <div style="border: 1px solid lavender; width: 100%; background-color:aquamarine">
                             <b>Step 4: Apply For Posts</b>
                         </div>
@@ -182,13 +177,13 @@ include('includes/header.php');
               <li>Click On "Eye icon" to View Your Roll Number</li>
               <li>Click On "Print" to Download Your Roll Number Slip</li>
             </ul> -->
-                            <!-- <a href="personal_information.php" style="width:230px ; align-items: center;"
+                            <a href="personal_information.php" style="width:230px ; align-items: center;"
                                 class="btn btn-warning shadow">Next</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 </section>
 
 <?php include('includes/footer.php') ?>

@@ -155,7 +155,7 @@ include('includes/header.php');
                         <ul>
                             <li>Not Applicable (N.A)</li>
                             <!-- <li>Upload you Experience Certificate( if Applicable)</li> -->
-                        <!-- </ul>
+                        </ul>
                         <div style="border: 1px solid lavender; width: 100%; background-color:aquamarine">
                             <b>Step 4: Apply For Posts</b>
                         </div>
@@ -182,7 +182,7 @@ include('includes/header.php');
               <li>Click On "Eye icon" to View Your Roll Number</li>
               <li>Click On "Print" to Download Your Roll Number Slip</li>
             </ul> -->
-                            <!-- <a href="personal_information.php" style="width:230px ; align-items: center;"
+                            <a href="personal_information.php" style="width:230px ; align-items: center;"
                                 class="btn btn-warning shadow">Next</a>
                         </div>
                     </div>

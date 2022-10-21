@@ -334,15 +334,19 @@ Apply Now
                                 <td colspan="3" class="text-center font-weight-bold text-danger">No Post Available For
                                     Apply
                                     <br>
-                                    FFBL, FPCL & FML Apprenticeship Program Candidates can check the Accepted /
-                                    Rejected Status.
-                                    <a href="online_registration.php" style="width:200px ; align-items: center;"
-                                class="btn  badge-pill  badge-info shadow">Click to Check Status</a>
+                                    FFBL, FPCL & FML Apprenticeship Program Candidates have to wait for the Accepted /
+                                    Rejected List.
+                                    
+                        <button class="btn btn-value my-2 my-sm-0" onclick="window.open('online_registration.php')"
+                            type="submit">
+
+                            Check Status
+
+                        </button>
                                 </td>
 
                             </tr>
 
-                            
                             <?php } ?>
 
                         </tbody>
