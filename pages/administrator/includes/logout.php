@@ -1,6 +1,6 @@
 <?php
 	 
-  $user_id = $_SESSION["admin"];
-  unset($_SESSION['admin']);
+  $user_id = $_SESSION["uts_admin"];
+  unset($_SESSION['uts_admin']);
 
 ?>

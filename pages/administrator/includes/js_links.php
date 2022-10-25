@@ -40,6 +40,9 @@ $(function () {
   	});
 
   	$("#preloader").fadeOut("fast");
+  	// document.addEventListener('contextmenu', function(e) {
+   //    e.preventDefault();
+   //  });
 });
 
 

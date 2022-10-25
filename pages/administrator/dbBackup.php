@@ -55,7 +55,7 @@ include "includes/header.php";
                 ?>
                 <tr>
                   <td><?php echo $serial ?></td>
-                  <td><a href="dbBackup/<?php echo $dbName ?>"> <?php echo $dbName ?></a></td>
+                  <td><a href="../../dbBackup/<?php echo $dbName ?>"> <?php echo $dbName ?></a></td>
                   <td><?php echo date('d-m-Y h:i:s a', strtotime($dbDate)); ?></td>
                 </tr>
                 <?php } ?>

@@ -22,16 +22,10 @@ $challan_id = $_GET['challan_id'];
   </div>
 </div>
  <section class="content" >
-  <div class="container-fluid" class="text-center">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <center id="succ" style="display: none">
-          <h4 class="text-success">Challan Updated Successfully</h4>
-        </center>
-        <center id="err" style="display: none">
-          <h4 class="text-danger">Challan Not Added</h4>
-        </center>
-        <div class="card card-dark" class="text-center">
+        <div class="card card-dark">
           <div class="card-header">
             <div class="card-title">Challan Form Edit</div>
             <div class="card-tools">
@@ -78,25 +72,25 @@ $challan_id = $_GET['challan_id'];
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Project Name</label>
+                    <label>Project Name <span class="text-danger">*</span></label>
                     <textarea class="form-control" disabled><?php echo $project_name ?></textarea>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Challan Title</label>
-                    <textarea class="form-control" name="challan_title"><?php echo $challan_title ?></textarea>
+                    <label>Challan Title <span class="text-danger">*</span></label>
+                    <textarea class="form-control" name="challan_title" required><?php echo $challan_title ?></textarea>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Test's Amount</label>
+                    <label>Test's Amount <span class="text-danger">*</span></label>
                     <input type="number" name="testAmount" placeholder="Test's Amount" class="form-control" value="<?php echo $test_amount ?>" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Amount in Words</label>
+                    <label>Amount in Words <span class="text-danger">*</span></label>
                     <input type="text" name="ammountWord" placeholder="Amount in Words" class="form-control" value="<?php echo $amount_words ?>" required>
                   </div>
                 </div>
@@ -110,13 +104,13 @@ $challan_id = $_GET['challan_id'];
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label>Bank Name</label>
+                    <label>Bank Name <span class="text-danger">*</span></label>
                     <input type="text" name="bank1" placeholder="Bank Name" class="form-control" value="<?php echo $bank1 ?>" required>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label>Bank Logo</label>
+                    <label>Bank Logo <span class="text-danger">*</span></label>
                     <input type="file" accept="image/PNG" style="overflow-x: hidden;" name="logo1" placeholder="Bank Name" class="form-control" id="file1" onchange="showImage1(event)" value="<?php echo $logo1 ?>">
                   </div>
                 </div>
@@ -129,19 +123,19 @@ $challan_id = $_GET['challan_id'];
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label>Branch</label>
+                    <label>Branch <span class="text-danger">*</span></label>
                     <input type="text" name="branch1" placeholder="Branch" class="form-control" value="<?php echo $branch1 ?>" required>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label>A/C Title</label>
+                    <label>A/C Title <span class="text-danger">*</span></label>
                     <input type="text" name="title1" placeholder="A/C Title" class="form-control" value="<?php echo $title1 ?>" required>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label>A/C No</label>
+                    <label>A/C No <span class="text-danger">*</span></label>
                     <input type="text" name="acco_no1" placeholder="A/C No" class="form-control" value="<?php echo $acc_no1 ?>" required>
                   </div>
                 </div>

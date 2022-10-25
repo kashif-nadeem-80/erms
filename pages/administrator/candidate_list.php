@@ -1,12 +1,25 @@
 <?php
 include "includes/header.php";
 ?>
-
+<style type="text/css">
+  @media print {
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
+    .printBlock
+    {
+      display: none;
+    }
+    .printColor
+    {
+      color: black !important;
+      background: white !important;
+    }
+}
+</style>
 <div class="content-header">
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-md-6">
-        <h4 class="m-0 text-dark">Post Wise Candidate's List</h4>
+        <h4 class="m-0 text-dark">Project Wise Candidate's List</h4>
       </div>
       <div class="col-md-6">
         <ol class="breadcrumb float-md-right">
@@ -19,12 +32,27 @@ include "includes/header.php";
 </div>
 <section class="content">
   <div class="container-fluid">
-    <form method="post">
+    <div class="d-none d-print-block">
+      <div class="row m-0">
+        <div class="col-md-2 text-center">
+          <a class="navbar-brand" href="https://uts.com.pk">
+            <img src="../../images/uts-logo.png" alt="logo" width="200px" height="55px">
+          </a>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5 text-center mt-4">
+          <h3 style="color: #00008B">Universal Testing Services</h3>
+          <h5 class="text-danger">Candidate's List</h5 class="text-danger">
+        </div>
+      </div>
+    </div>
+    <hr class="shadow mt-0 printBlock">
+    <form method="post" class="">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="form-group">
             <label>Project Title</label>
-            <select class="form-control select2" id="proj" onchange="getPost()"required name="projId">
+            <select class="form-control" id="proj" onchange="getCenter()"required name="projId">
               <option value="">Choose</option>
               <?php
               $fetchData = "SELECT * FROM projects WHERE status = '1' ORDER BY id DESC";
@@ -38,27 +66,20 @@ include "includes/header.php";
             </select>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Posts</label>
-            <select class="form-control select2" onchange="getCenter()" name="postId" id="post" required>
-              <option value="">First Select Project</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <div class="form-group">
             <label>City</label>
-            <select class="form-control select2" name="cityId" id="city" onchange="getCenter()" required>
+            <select class="form-control" name="cityId" id="city" onchange="getCenter()" required>
               <option value="">Choose</option>
               <?php
-              $fetchData = "SELECT * FROM city ORDER BY c_name ASC";
-              $run = mysqli_query($connection,$fetchData);
-              while ($row = mysqli_fetch_array($run)) {
-                $id = $row['id'];
-                $name = $row['c_name'];
+                $query = "SELECT c.id, c.c_name FROM city AS c WHERE c.test_center_status = '1' ORDER BY c.c_name ASC";
+                $result = mysqli_query($connection,$query);
+                while ($row = mysqli_fetch_array($result))
+                {
+                  $id = $row['id'];
+                  $c_name = $row['c_name'];
               ?>
-              <option value="<?php echo $id ?>"><?php echo $name ?></option>
+              <option value="<?php echo $id ?>"><?php echo $c_name ?></option>
             <?php } ?>
             </select>
           </div>
@@ -66,28 +87,37 @@ include "includes/header.php";
         <div class="col-md-6">
           <div class="form-group">
             <label>Center</label>
-            <select class="form-control select2" onchange="get_test_sesion()" id="center" name="centerId" required>
+            <select class="form-control" onchange="get_test_sesion()" id="center" name="centerId" required>
               <option value="">First Select City</option>
             </select>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div class="form-group">
             <label>Session</label>
-            <select class="form-control select2" onchange="getData()" id="sesion" name="sesionId" required>
+            <select class="form-control" onchange="getData()" id="sesion" name="sesionId" required>
               <option value="">First Select Post & Center</option>
             </select>
           </div>
         </div>
       </div>
     </form>
-    <br>
+    <br class="printBlock">
+    <div class="row printBlock">
+      <div class="col-md-12">
+        <div class="form-group text-right">
+          <button class="btn btn-info shadow" onclick="dataPrint()">Print</button>
+        </div>
+      </div>
+    </div>
+    <hr class="mt-0">
     <div class="row">
       <div class="col-md-12">
         <div id="ajaxData" class="table-responsive"></div>
       </div>
     </div>
   </div>
+  
 </section>
 
 
@@ -96,24 +126,6 @@ include "includes/header.php";
 ?>
 
 <script type="text/javascript">
-function getPost()
-{
-  var projId = $("#proj").val();
-  $.ajax({
-    method:'POST',
-    url:'admin_ajax.php',
-    data: {
-        projId: projId
-    },
-    dataType: "html",
-    success:function(result){
-      $("#post").html(result);
-    }
-  }).done(function(){
-    getCenter();
-  });
-}
-
 
 function getCenter()
 {
@@ -137,7 +149,6 @@ function getCenter()
 
 function get_test_sesion()
 {
-
   var center = $("#center").val();
   var post = $("#post").val();
   $.ajax({
@@ -160,15 +171,15 @@ function get_test_sesion()
 function getData()
 {
   var sesion = $("#sesion").val();
-  var post = $("#post").val();
+  var proj = $("#proj").val();
   if(sesion != '')
   {
     $.ajax({
       method:'POST',
       url:'candidate_list_ajax.php',
       data: {
-          post: post,
-          sesion: sesion
+          proj1: proj,
+          sesion1 : sesion
       },
       dataType: "html",
       success:function(result){
@@ -181,6 +192,12 @@ function getData()
   {
     $("#ajaxData").html("");
   }
+}
+
+
+function dataPrint()
+{
+  window.print();
 }
 
 </script>

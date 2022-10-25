@@ -6,27 +6,26 @@ include "includes/header.php";
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-md-6">
-        <h4 class="m-0 text-dark">In-Active Project's Details</h4>
-      </div><!-- /.col -->
+        <h4 class="m-0 text-dark">Completed Project's Details</h4>
+      </div>
       <div class="col-md-6">
         <ol class="breadcrumb float-md-right">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item active">In-Active Project's Details</li>
+          <li class="breadcrumb-item active">Completed Project's Details</li>
         </ol>
-      </div><!-- /.col -->
-    </div><!-- /.row -->
-  </div><!-- /.container-fluid -->
+      </div>
+    </div>
+  </div>
 </div>
  <section class="content" >
-  <div class="container-fluid" class="text-center">
-
+  <div class="container-fluid">
     <div class="row">
       <!-- left column -->
       <div class="col-md-12">
         <!-- general Card elements -->
-        <div class="card card-dark" class="text-center">
+        <div class="card card-dark">
           <div class="card-header">
-            <div class="card-title">In-Active Project's Details</div>
+            <div class="card-title">Completed Project's Details</div>
             <div class="card-tools">
               <a href="project_add.php" class="btn btn-primary btn-sm shadow">Add New</a>
             </div>
@@ -65,7 +64,7 @@ include "includes/header.php";
                 }
                 else
                 {
-                  $status   = "In-Active";
+                  $status   = "Completed";
                 }
                 $organization      = $rowData['organization'];
 
@@ -118,7 +117,7 @@ function activeProject(id) {
         confirmButtonText: 'Yes, active it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = "project_list_inactive.php?disId=" + p_id;
+          window.location.href = "project_list_inactive.php?disId=" + p_id;
         }
     });
 }

@@ -102,8 +102,8 @@ include "includes/header.php";
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Project Title</label>
-                  <select class="form-control select2" name="projectId">
+                  <label>Project Title <span class="text-danger">*</span></label>
+                  <select class="form-control select2" name="projectId" required>
                     <option value="">Choose</option>
                     <?php
                     $fetchData = "SELECT * FROM projects WHERE status = '1' ORDER BY id DESC";
@@ -119,8 +119,8 @@ include "includes/header.php";
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Challan Title</label>
-                  <input type="text" name="challan_title" placeholder="Challan Title" class="form-control">
+                  <label>Challan Title <span class="text-danger">*</span></label>
+                  <input type="text" name="challan_title" placeholder="Challan Title" class="form-control" required>
                   <span class="text-danger">Challan title must be unique</span>
                 </div>
               </div>
@@ -130,13 +130,13 @@ include "includes/header.php";
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Test's Amount</label>
+                  <label>Test's Amount <span class="text-danger">*</span></label>
                   <input type="number" name="testAmount" placeholder="Test's Amount" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label>Amount in Words</label>
+                  <label>Amount in Words <span class="text-danger">*</span></label>
                   <input type="text" name="ammountWord" placeholder="Amount in Words" class="form-control" required>
                 </div>
               </div>
@@ -150,14 +150,14 @@ include "includes/header.php";
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Bank Name</label>
+                  <label>Bank Name <span class="text-danger">*</span></label>
                   <input type="text" name="bank1" placeholder="Bank Name" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Bank Logo</label>
-                  <input type="file" style="overflow-x: hidden;" accept="image/PNG" name="logo1"  class="form-control" id="file1" onchange="showImage1(event)">
+                  <label>Bank Logo <span class="text-danger">*</span></label>
+                  <input type="file" style="overflow-x: hidden;" accept="image/PNG" name="logo1"  class="form-control" id="file1" onchange="showImage1(event)" required>
                 </div>
               </div>
               <div class="col-md-4">
@@ -169,19 +169,19 @@ include "includes/header.php";
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Branch</label>
+                  <label>Branch <span class="text-danger">*</span></label>
                   <input type="text" name="branch1" placeholder="Branch" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>A/C Title</label>
+                  <label>A/C Title <span class="text-danger">*</span></label>
                   <input type="text" name="title1" placeholder="A/C Title" class="form-control" required>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>A/C No</label>
+                  <label>A/C No <span class="text-danger">*</span></label>
                   <input type="text" name="acco_no1" placeholder="A/C No" class="form-control" required>
                 </div>
               </div>

@@ -34,10 +34,10 @@ $proj_id = $_GET['proj_id'];
           $project_name = $row['project_name'];
           $project_id = $row['project_id'];
           $organization = $row['organization'];
-          $start_date = $row['start_date'];
-          $last_date = $row['last_date'];
-          $create_date = $row['create_date'];
-          $update_date = $row['update_date'];
+          $start_date = date("d-m-Y",strtotime($row['start_date']));
+          $last_date = date("d-m-Y",strtotime($row['last_date']));
+          $create_date = date("d-m-Y",strtotime($row['create_date']));
+          $update_date = date("d-m-Y",strtotime($row['update_date']));
           $status = $row['status'];
           if($row['status'] == '1')
           {

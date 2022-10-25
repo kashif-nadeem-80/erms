@@ -66,7 +66,7 @@ include "includes/header.php";
       </div>
     </div>
 
-    <div class="row mb-0 pb-0">
+    <div class="row mb-0 pb-0" id="showExportSummary" style="display: none">
       <div class="col-md-12 text-right">
         <button type="button" class="btn btn btn-success" onclick="return export_all()"><i class="fa fa-file-excel"></i> Export to Excel</button>
         <!-- <button type="button" style="margin-right: 10px" class="btn btn-success" onclick="return export_specific()"><i class="fa fa-file-excel-o"></i> Export to Excel (Specific)</button> -->
@@ -74,20 +74,47 @@ include "includes/header.php";
     </div>
     <hr class=" mt-0 pt-0">
 
+      <div class="row">
+          <div class="col-md-12">
+              <div id="ajaxData" class="table-responsive">
+              </div>
+          </div>
+
+      </div>
+      <div class="row mb-2 mt-2 pb-0" id="showExportDetail" style="display: none">
+          <div class="col-md-12 text-right">
+              <button onclick="downloadSummarizeReport()" class="btn btn btn-success">
+                  <i class="fa fa-file-excel"></i> Export Detail to Excel
+              </button>
+              <!-- <button type="button" style="margin-right: 10px" class="btn btn-success" onclick="return export_specific()"><i class="fa fa-file-excel-o"></i> Export to Excel (Specific)</button> -->
+          </div>
+      </div>
     <div class="row">
       <div class="col-md-12">
-        <div id="ajaxData" class="table-responsive">
-          <table class="table table-hover datatable bg-white" data-page-length="100" style="font-size: 11px">
+
+        <div class="table-responsive">
+          <table class="table table-hover bg-white" id="ajaxDataTable" data-page-length="100" style="margin0; width: 100%;font-size: 11px">
             <thead class="bg-dark">
               <tr>
-                <th width="6%">S.No</th>
-                <th>Project</th>
-                <th>Post</th>
-                <th>City</th>
-                <th>Apply Male</th>
-                <th>Apply Female</th>
-                <th>Apply Other</th>
-                <th>Total Apply</th>
+                  <th>S.No</th>
+                  <th>Post</th>
+                  <th>Name</th>
+                  <th>Father Name</th>
+                  <th>Contact #</th>
+                  <th>Email</th>
+                  <th>CNIC</th>
+                  <th>DOB</th>
+                  <th>Age</th>
+                  <th>Gender</th>
+                  <th>City</th>
+                  <th>Address</th>
+                  <th>Domicile</th>
+                  <th>Quota</th>
+                  <th>Education</th>
+                  <th>Total Experience</th>
+                  <th>Govt Employee</th>
+                  <th>Eligible</th>
+                  <th>Challan Submitted</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -120,37 +147,100 @@ include "includes/header.php";
       getApplicantData();
     });
   }
+
+  function downloadSummarizeReport() {
+      var proj_id = $("#proj").val();
+      var post_id = $("#post_id").val();
+      var city_id = $("#city_id").val();
+      if(proj_id != '') {
+          window.open('report_summarize_download.php?proj_id='+proj_id+'&post_id='+post_id+'&city_id='+city_id);
+      }
+
+  }
   
   function getApplicantData()
   {
 
-    let proj_id = $("#proj").val();
-    let post_id = $("#post_id").val();
-    let city_id = $("#city_id").val();
+      getApplicantSummary();
 
-    if(proj_id != '' && post_id != '' && city_id != '')
-    {
-      $("#preloader").fadeIn(100);
-      
-      $.ajax({
-        method:'POST',
-        url:'report_summarize_ajax.php',
-        data: {
-            proj_id: proj_id,
-            postId: post_id,
-            city_id: city_id
-        },
-        dataType: "html",
-        success:function(result){
-          $("#ajaxData").html(result);
-          $(".datatable").DataTable();
-      $("#preloader").fadeOut(100);
+      if ($.fn.DataTable.isDataTable('#ajaxDataTable')) {
+          $('#ajaxDataTable').dataTable().fnClearTable();
+          $('#ajaxDataTable').dataTable().fnDestroy();
 
-        }
-      }).done(function(){
-        calculateTotal();
+      }
+
+
+      $('#ajaxDataTable').DataTable({
+          'processing': true,
+          'serverSide': true,
+          'serverMethod': 'post',
+
+          'ajax': {
+              'url':'report_summarize_ajax.php',
+              'data': function(d) {
+                  d.proj_id = $("#proj").val();
+                  d.postId =  $("#post_id").val();
+                  d.city_id = $("#city_id").val();
+              }
+          },
+          'columns': [
+              { data: 'sno' },
+              { data: 'post_name' },
+              { data: 'name' },
+              { data: 'fatherName' },
+              { data: 'contact_no' },
+              { data: 'email' },
+              { data: 'cnic' },
+              { data: 'dob' },
+              { data: 'age' },
+              { data: 'gender' },
+              { data: 'city' },
+              { data: 'address' },
+              { data: 'domicile' },
+              { data: 'quota' },
+              { data: 'education' },
+              { data: 'total_exp' },
+              { data: 'govt_emp' },
+              { data: 'eligible' },
+              { data: 'challan' },
+          ],
+          'drawCallback': function(setting) {
+              $("#showExportDetail").show();
+          }
+
       });
-    }
+
+  }
+
+  function getApplicantSummary() {
+      var proj_id = $("#proj").val();
+      var post_id = $("#post_id").val();
+      var city_id = $("#city_id").val();
+      if(proj_id != '' && post_id != '' && city_id != '')
+      {
+        $("#preloader").fadeIn(100);
+
+        $.ajax({
+          method:'POST',
+          url:'report_summarize_ajax.php',
+          data: {
+              proj_id: proj_id,
+              postId: post_id,
+              city_id: city_id,
+              summary: true
+          },
+          dataType: "html",
+          success:function(result){
+              $("#preloader").fadeOut(100);
+              $("#showExportSummary").show();
+              $("#ajaxData").html(result);
+            // $(".datatable").DataTable();
+
+          }
+        }).done(function(){
+          calculateTotal();
+        });
+      }
   }
 
   function calculateTotal() {
@@ -186,6 +276,16 @@ include "includes/header.php";
       }
     });
     $('#sumOther').text(sum);
+      var sum = 0;
+
+      $(".notMention").each(function() {
+          var value = $(this).text();
+          //add only if the value is number
+          if(!isNaN(value) && value.length != 0) {
+              sum += parseFloat(value);
+          }
+      });
+      $('#sumNotMention').text(sum);
 
     var sum = 0;
     //iterate through each td based on class and add the values
@@ -217,5 +317,12 @@ include "includes/header.php";
       filename:'Summarize Report.csv',
     });
     // $('#export_table').DataTable();
+  }
+  function export_detail() {
+
+      $("#export_table_full").tableHTMLExport({
+          type:'csv',
+          filename:'Detail Report.csv',
+      });
   }
 </script>

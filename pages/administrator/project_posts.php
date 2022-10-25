@@ -53,7 +53,7 @@ $proj_id = $_GET['proj_id'];
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Challan Title</label>
-                                        <select class="form-control select2" name="challan" required>
+                                        <select class="form-control select2" name="challan">
                                             <option value="">Choose</option>
                                             <?php
                                             $fetch1 = "SELECT id, challan_title FROM projects_challans WHERE project_id = '$proj_id'";
@@ -117,8 +117,15 @@ $proj_id = $_GET['proj_id'];
                   $countrec = mysqli_num_rows($run);
                   if($countrec == 0)
                   {
-                    $query = "INSERT INTO `projects_posts`(`proj_challan_id`,`post_name`, `post_bps`,`no_of_posts`, `project_id`,`age_lower`, `age_upper`) VALUES ('$challan','$post_name','$post_bps','$no_of_posts','$proj_id','$age_lower','$age_upper')";
-                    $result = mysqli_query($connection,$query);
+                      $cols = "`post_name`, `post_bps`,`no_of_posts`, `project_id`,`age_lower`, `age_upper`";
+
+                      $values = "'$post_name','$post_bps','$no_of_posts','$proj_id','$age_lower','$age_upper'";
+                      if($challan) {
+                          $cols .= ",`proj_challan_id`";
+                          $values .= ", '$challan'";
+                      }
+                    $query = "INSERT INTO `projects_posts` ($cols) VALUES ($values)";
+                    $result = mysqli_query($connection,$query) or dir(mysqli_error($connection));
                   
                   }
                 if(@$result)

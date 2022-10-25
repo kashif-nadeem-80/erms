@@ -19,7 +19,7 @@ include "includes/header.php";
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-md-6">
-        <h4 class="m-0 text-dark">Search Candidate </h4>
+        <h4 class="m-0 text-dark">Active Projects</h4>
       </div>
       <div class="col-md-6">
         <ol class="breadcrumb float-md-right">

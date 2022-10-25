@@ -17,34 +17,49 @@ if(isset($_POST['applicant_id']))
     <div class="col-md-12">
       <div class="card card-dark" class="text-center">
         <br>
-        <?php
-          $query = "SELECT ct.id AS ct_id, ct.c_name, p.id AS pro_id,p.pro_name,z.zone_name ,d.id AS d_id,d.dis_name, c.f_contact, c.name, c.cnic, c.email, c.phone, c.password,c.image,c.signUpDate, c.f_name, c.gender, c.disability, c.dob, c.postal_address, c.telephone,c.religion, c.gov_employee, c.simple_exper, c.retired_pak, c.marital_status, c.army_exper,c.widow_gov_emp,c.id,c.disable_file,c.widow_file, c.father_occup FROM `candidates` AS c
-          LEFT JOIN district AS d ON d.id = c.district_id
-          LEFT JOIN zone AS z ON z.id = d.zone_id
-          LEFT JOIN province AS p ON p.id = d.pro_id
-          LEFT  JOIN city AS ct ON ct.id = c.city
-          WHERE c.id = '$canddate_id1'";
-          $result = mysqli_query($connection,$query);
-          $rowData = mysqli_fetch_array($result);
-          $ct_id = $rowData['ct_id'];
-          $c_name = $rowData['c_name'];
-          $d_id = $rowData['d_id'];
-          $d_name = $rowData['dis_name'];
-          $f_contact = $rowData['f_contact'];
-          $name = $rowData['name'];
-          $marital_statusU = $rowData['marital_status'];
-          $cnic = $rowData['cnic'];
-          $father_occup = $rowData['father_occup'];
-          $email = $rowData['email'];
-          $phone = $rowData['phone'];
-          $image = $rowData['image'];
-          $f_name = $rowData['f_name'];
-          $gender = $rowData['gender'];
-          $dob = $rowData['dob'];
-          $postal_address = $rowData['postal_address'];
-          $telephone = $rowData['telephone'];
-          $religion = $rowData['religion'];
-        ?>
+          <?php
+          
+          $query = "SELECT p.id AS pro_id,p.pro_name,z.zone_name ,d.id AS d_id,d.dis_name, c.name, c.cnic, c.email, c.phone, c.password,c.image,c.signUpDate, c.f_name, c.gender, c.disability, c.dob, c.postal_address, c.telephone,c.religion, c.gov_employee, c.simple_exper, c.retired_pak, c.army_exper,c.widow_gov_emp,c.id,c.disable_file,c.widow_file FROM `candidates` AS c 
+            LEFT JOIN district AS d ON d.id = c.district_id
+            LEFT JOIN zone AS z ON z.id = d.zone_id
+            LEFT JOIN province AS p ON p.id = d.pro_id
+            WHERE c.id = '$canddate_id1'";
+            $result = mysqli_query($connection,$query);
+            $rowData = mysqli_fetch_array($result);
+            $d_id = $rowData['d_id'];
+            $d_name = $rowData['dis_name'];
+            $name = $rowData['name'];
+            $cnic = $rowData['cnic'];
+            $email = $rowData['email'];
+            $phone = $rowData['phone'];
+            $password = $rowData['password'];
+            $zone_name = $rowData['zone_name'];
+            $pro_namee = $rowData['pro_name'];
+            $pro_idd = $rowData['pro_id'];
+            $disable_file = $rowData['disable_file'];
+            $widow_file = $rowData['widow_file'];
+            $image = $rowData['image'];
+            $signupdate = $rowData['signUpDate'];
+            $f_name = $rowData['f_name'];
+            $gender = $rowData['gender'];
+            $disability = $rowData['disability'];
+            if($rowData['dob'] != '')
+            {
+              $dob = date("d-m-Y",strtotime($rowData['dob']));
+            }
+            else
+            {
+              $dob = "";
+            }
+            $postal_address = $rowData['postal_address'];
+            $telephone = $rowData['telephone'];
+            $religion = $rowData['religion'];
+            $gov_employee = $rowData['gov_employee'];
+            $simple_exper = $rowData['simple_exper'];
+            $retired_pak = $rowData['retired_pak'];
+            $army_exper = $rowData['army_exper'];
+            $widow_gov_emp = $rowData['widow_gov_emp'];
+           ?>
         <div class="card-body">
           <div class="row p-0 m-0">
             <div class="col-md-12 text-center text-primary">
@@ -53,8 +68,10 @@ if(isset($_POST['applicant_id']))
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
-              <div class="form-group text-right">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-7">
+              <div class="form-group  mr-3 mt-0 float-right">
                 <img id="log1" class="shadow" style="border: 1px blue solid; border-radius: 10%; margin-top: -4%" width="120px;" height="130px"  src="../../images/candidates/profile picture/<?php
                 if($image == NULL OR $image == '')
                 { 
@@ -69,171 +86,148 @@ if(isset($_POST['applicant_id']))
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label>Name in Full</label>
-                <input type="text" name="name" class="form-control" value="<?php echo  $name;?>" disabled placeholder="Name in Full">
+                <input type="text" class="form-control" disabled value="<?php echo  $name;?>">
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label>Father's Name</label>
-                <input type="text" name="fathername" placeholder="Father Name"
-                class="form-control" value="<?php echo  $f_name;?>" autocomplete="off"
-                disabled>
+                <input type="text" class="form-control" disabled value="<?php echo  $f_name;?>">
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label>Candidate CNIC #</label>
-                <input type="text" name="cnic" data-inputmask="'mask': '99999-9999999-9'"
-                placeholder="XXXXX-XXXXXXX-X" maxlenght="15" class="form-control"
-                autocomplete="off" disabled value="<?php echo  $cnic;?>">
+                <input type="text" class="form-control" disabled value="<?php echo  $cnic;?>">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Gender</label>
-                <select name="gender" class="form-control" disabled>
-                  <?php if($gender == NULL OR $gender == '') {
-                  echo "<option value=''>Choose</option>";
-                  } else {
-                  echo "<option value='$gender'>$gender</option>"; }
-                  ?>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
+                <input type="text" class="form-control" disabled value="<?php echo  $gender;?>">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Have You any disability?</label>
+              <?php
+              if($disability == 'Yes')
+            { ?>
+                <a href="#edit1" class="ajaxData1" data-toggle='modal' data-id="<?php echo $disable_file ?>">(View)
+                </a>
+            <?php } ?>
+                <input type="text" class="form-control" disabled value="<?php echo  $disability;?>">
               </div>
             </div>
             <div class="col-md-3">
               <div class="form-group">
                 <label>Date of Birth</label>
-                <input type="date" name="dob" id="d_o_b" placeholder="dob" class="form-control" disabled onchange="getAge()" autocomplete="off" value="<?php echo  $dob;?>">
+                <input type="text" class="form-control" disabled value="<?php echo  $dob;?>">
               </div>
             </div>
             <div class="col-md-3">
-              <div class="form-group">
-                <label>Age</label>
-                <input type="text" placeholder="Age" id="agee" class="form-control" disabled>
-              </div>
-            </div>
-            
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Marital Status</label>
-                <select class="form-control" name="marital_status" disabled>
-                  <?php if($marital_statusU == NULL OR $marital_statusU == '') {
-                  echo "<option value=''>Choose</option>";
-                  } else {
-                  echo "<option value='$marital_statusU'>$marital_statusU</option>"; }
-                  ?>
-                  <option value="Single">Single</option>
-                  <option value="Married">Married</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Religion</label>
-                <select class="form-control" name="religion" disabled>
-                  <?php if($religion == NULL OR $religion == '') {
-                  echo "<option value=''>Choose</option>";
-                  } else {
-                  echo "<option value='$religion'>$religion</option>"; }
-                  ?>
-                  <option value="Muslim">Muslim</option>
-                  <option value="Non-Muslim">Non-Muslim</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Father's Occupation</label>
-                <input type="text" name="f_occupation" disabled class="form-control"
-                placeholder="Father's Occupation" value="<?php echo  $father_occup; ?>" required>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Father's Contact</label>
-                <input class="form-control" type="tel" name="f_contact"
-                data-inputmask="'mask': '9999-9999999'" disabled maxlength="12"
-                placeholder="03XX-XXXXXXX" value="<?php echo $f_contact;?>">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Postal Address</label>
-                <textarea class="form-control"
-                name="postaladdress" disabled><?php echo  $postal_address;?></textarea>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>City</label>
-                <select name="city" disabled class="form-control select2" required>
-                  <option value="<?php echo $ct_id ?>"><?php echo $c_name ?></option>
-                  <?php
-                  $data = "SELECT * FROM city ORDER BY c_name ASC";
-                  $run = mysqli_query($connection,$data);
-                  while ($row = mysqli_fetch_array($run)) {
-                  $id = $row['id'];
-                  $name = $row['c_name'];
-                  echo "<option value='$id'>$name</option>";
-                  }
-                  ?>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>District</label>
-                <select name="dist_id" class="form-control select2" id="fetc_dist"
-                  onchange="getzone()" disabled>
-                  <option value="<?php echo $d_id ?>"><?php echo $d_name ?></option>
-                  <?php
-                  $data = "SELECT * FROM district ORDER BY dis_name ASC";
-                  $run = mysqli_query($connection,$data);
-                  while ($row = mysqli_fetch_array($run)) {
-                  $id = $row['id'];
-                  $district = $row['dis_name'];
-                  echo "<option value='$id'>$district</option>";
-                  }
-                  ?>
-                </select>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Personal Contact</label>
-                <input class="form-control" type="tel" name="contact"
-                data-inputmask="'mask': '9999-9999999'" maxlength="12"
-                placeholder="03XX-XXXXXXX" disabled value="<?php echo  $phone;?>">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label>Other Contact</label>
-                <input type="phone" disabled class="form-control" name="phone"
-                value="<?php echo  $telephone;?>">
-              </div>
-            </div>
-
-            <div class="col-md-4">
               <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control"
-                placeholder="example@gmail.com" disabled autocomplete="off"
-                value="<?php echo  $email;?>" required>
+                <input type="text" class="form-control" disabled value="<?php echo  $email;?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Province Of Domicile</label>
+                <input type="text" class="form-control" disabled value="<?php echo  $pro_namee;?>">
               </div>
             </div>
           </div>
-
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>District</label>
+                <input type="text" class="form-control" disabled value="<?php echo  $d_name;?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Zone</label>
+                <input type="text" class="form-control" disabled value="<?php echo  $zone_name;?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Postal Address</label>
+                <textarea class="form-control" disabled><?php echo  $postal_address;?></textarea>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label>Phone No:(Res.)</label>
+                <input type="text" class="form-control" disabled value="<?php echo  $telephone;?>">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="">Mobile(mandatory)</label>
+                <input type="text" class="form-control" disabled value="<?php echo  $phone;?>">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="">Religion</label>
+                <input type="text" class="form-control" disabled value="<?php echo  $religion;?>">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Are You a Govt serving employee?</label>
+                <input type="text" id="emp1" class="form-control" disabled value="<?php echo  $gov_employee;?>">
+              </div>
+            </div>
+              <?php
+            if($gov_employee == 'Yes')
+            { ?>
+            <div class="col-md-6" id="exp1">
+              <div class="form-group">
+                <label for="">Total Experience</label>
+                <input type="text" id="emp1" class="form-control" disabled value="<?php echo  $simple_exper;?>">
+              </div>
+            </div>
+           <?php }?>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="">Are You retired from Pakistan Armed Forces?</label>
+                <input type="text" id="emp2" class="form-control" disabled value="<?php echo  $retired_pak;?>">
+              </div>
+            </div>
+             <?php
+            if($retired_pak == 'Yes')
+            { ?>
+            <div class="col-md-6" id="exp2">
+              <div class="form-group">
+                <label for="">Total Experince</label>
+                <input type="text" id="emp2" class="form-control" disabled value="<?php echo  $army_exper;?>">
+              </div>
+            </div>
+            <?php }?>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Widow/Son/Daughter of deceased Govt Employee?</label>
+              <?php 
+               if($widow_gov_emp  == 'Yes'){
+              ?>
+                <a href="#edit1" class="ajaxData2" data-toggle='modal' data-id="<?php echo $widow_file ?>">(View)
+                  </a>
+              <?php }?>
+                <input type="text" id="test3" class="form-control" disabled value="<?php echo  $widow_gov_emp;?>">
+              </div>
+            </div>
+          </div>
           <hr class="shadow" style="border: 1px solid grey;">
-
           <div class="row p-0 m-0">
             <div class="col-md-12 text-center text-primary">
               <h3>Education's Information</h3>
@@ -242,7 +236,7 @@ if(isset($_POST['applicant_id']))
           </div>
 
           <?php
-            $query2 = "SELECT  e.id,e.passing_year,e.major_subject, e.obtain_marks, e.total_marks, e.university, e.percentage, e.division, e.deg_image, d.deg_name, ed.level_name FROM education AS e JOIN degree AS d ON d.id = e.degree_id LEFT JOIN edu_level AS ed ON ed.id = d.level_id WHERE e.candi_id= '$canddate_id1' ORDER BY e.id ASC";
+            $query2 = "SELECT  e.id,e.passing_year,e.major_subject, e.obtain_marks, e.total_marks, e.university, e.deg_image, d.deg_name, ed.level_name FROM education AS e JOIN degree AS d ON d.id = e.degree_id LEFT JOIN edu_level AS ed ON ed.id = d.level_id WHERE e.candi_id= '$canddate_id1' ORDER BY e.id ASC";
             $runData = mysqli_query($connection,$query2);
             $countRow = mysqli_num_rows($runData);
             if($countRow != 0)
@@ -258,9 +252,8 @@ if(isset($_POST['applicant_id']))
                     <th>Certificate/Degree </th>
                     <th>Year Passing</th>
                     <th>Major Subject</th>
-                    <th>Total Marks/CGPA</th>
                     <th>Obtained Marks</th>
-                    <th>Percentage/Division</th>
+                    <th>Total Marks/CGPA</th>
                     <th>University/Board</th>
                     <th>Certificate</th>
                   </tr>
@@ -279,8 +272,6 @@ if(isset($_POST['applicant_id']))
                   $Board1   = $rowData['university'];
                   $certificate = $rowData['deg_image'];
                   $pathImg    = "../../images/candidates/education/".$certificate;
-                  $percentage = $rowData['percentage'];
-                  $division   = $rowData['division'];
                   ?>
                 </thead>
                 <tbody>
@@ -290,12 +281,8 @@ if(isset($_POST['applicant_id']))
                     <td><?php echo $degree1; ?></td>
                     <td><?php echo $pas_year;?></td>
                     <td><?php echo $major_subject;?></td>
-                    <td><?php echo $tot_marks; ?></td>
                     <td><?php echo $obt_marks; ?></td>
-                    <td>
-                      <?php if($percentage == 'Inprogress') { echo 'Inprogress'; }
-                        else { echo $percentage."% <b>/</b> ".$division; } ?> 
-                    </td>
+                    <td><?php echo $tot_marks; ?></td>
                     <td><?php echo $Board1; ?></td>
                     <td>
                       <?php if($certificate == 'Inprogress') {
@@ -355,8 +342,7 @@ if(isset($_POST['applicant_id']))
                     <th>Date From </th>
                     <th>Date To</th>
                     <th>Duration</th>
-                    <th>Pay Package</th>
-                    <th>Certificate</th>
+                    <th>File Upload</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -369,9 +355,8 @@ if(isset($_POST['applicant_id']))
                   $jobs  = $rowData['job_title'];
                   $date_froms   = $rowData['date_from'];
                   $date_tos   = $rowData['date_to'];
-                  $file = $rowData['file'];
                   $total_exp = $rowData['total_exp'];
-                  $payment = $rowData['payment'];
+                  $file = $rowData['file'];
                   $pathImg = "../../images/candidates/employee_experince/".$file;
                   ?>
                   <tr>
@@ -381,7 +366,7 @@ if(isset($_POST['applicant_id']))
                     <td><?php echo $date_froms ?></td>
                     <td>
                       <?php
-                        if($date_tos != "0000-00-00")
+                        if($rowData['date_to'] != "0000-00-00")
                         { 
                           echo $date_tos;
                         }
@@ -392,7 +377,6 @@ if(isset($_POST['applicant_id']))
                         ?>  
                     </td>
                     <td><?php echo $total_exp ?></td>
-                    <td><?php echo $payment ?></td>
                     <td>
                       <?php
                       if($file == "Continue")
@@ -434,30 +418,6 @@ if(isset($_POST['applicant_id']))
 
 
 <script type="text/javascript">
-
-  getAge();
-
-  function getAge()
-  {
-    var mdate = $("#d_o_b").val();
-    var yearThen = parseInt(mdate.substring(0,4), 10);
-    var monthThen = parseInt(mdate.substring(5,7), 10);
-    var dayThen = parseInt(mdate.substring(8,10), 10);
-    
-    var today = new Date();
-    var birthday = new Date(yearThen, monthThen-1, dayThen);
-    
-    var differenceInMilisecond = today.valueOf() - birthday.valueOf();
-    
-    var year_age = Math.floor(differenceInMilisecond / 31536000000);
-    var day_age = Math.floor((differenceInMilisecond % 31536000000) / 86400000);
-
-    var month_age = Math.floor(day_age/30);
-    
-    day_age = day_age % 30;
-
-    $("#agee").val(year_age + " years & " + month_age + " months");
-  }
 
   $('.ajaxData1').click(function(){
     var disability = $(this).attr('data-id');

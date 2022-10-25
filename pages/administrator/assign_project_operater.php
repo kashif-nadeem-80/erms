@@ -80,7 +80,7 @@ include "includes/header.php";
       {
         $postId = $_POST['post'];
         $op_id = $_POST['op_id'];
-        $fetch = "SELECT id FROM project_to_operator WHERE post_id = '$postId' AND operator_id = '$op_id'";
+      echo  $fetch = "SELECT id FROM project_to_operator WHERE post_id = '$postId' AND operator_id = '$op_id' ";
         $runQ = mysqli_query($connection,$fetch);
         $countR = mysqli_num_rows($runQ);
         if($countR != 0)
@@ -143,7 +143,7 @@ include "includes/header.php";
                     'success'
                   ).then((result) => {
                     if (result.isConfirmed) {
-                       window.location.href = 'assign_project_operater.php';
+                       
                     }
                   });
                   </script>
@@ -193,7 +193,7 @@ include "includes/header.php";
           <tbody>
           <?php 
           $count = 0;
-          $fetchData= "SELECT u.name, p.post_name, u.id AS operatorid, p.post_bps, o.id, o.status, pj.project_name FROM management_users AS u INNER JOIN project_to_operator AS o ON o.operator_id = u.id INNER JOIN projects_posts AS p ON p.id = o.post_id INNER JOIN projects AS pj ON pj.id = p.project_id ORDER BY pj.id DESC, u.name ASC";
+         echo $fetchData= "SELECT u.name, p.post_name, u.id AS operatorid, p.post_bps, o.id, o.status, pj.project_name FROM management_users AS u INNER JOIN project_to_operator AS o ON o.operator_id = u.id INNER JOIN projects_posts AS p ON p.id = o.post_id INNER JOIN projects AS pj ON pj.id = p.project_id   ORDER BY pj.id DESC, u.name ASC";
           $runData = mysqli_query($connection,$fetchData);
           while($rowData = mysqli_fetch_array($runData)) {
             $count++;
@@ -304,7 +304,7 @@ include "includes/header.php";
 
   function deleteData(id)
   {
-    var deg_id = id;
+    var data_id = id;
         Swal.fire({
         title: 'Are you sure?',
         text: "To delete the selected record !",
@@ -315,7 +315,7 @@ include "includes/header.php";
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        window.location.href= "assign_project_operater.php?deletId="+deg_id;
+        window.location.href= "assign_project_operater.php?deletId="+data_id;
       }
   });
 
@@ -365,7 +365,7 @@ include "includes/header.php";
     }
     else
     {
-      $fetch3 = "SELECT id FROM project_to_operator WHERE operator_id = '$operatrid' AND status = '1'";
+      $fetch3 = "SELECT id FROM project_to_operator WHERE operator_id = '$operatrid' AND status = '1' ";
       $runQ3 = mysqli_query($connection,$fetch3);
       $countR3 = mysqli_num_rows($runQ3);
 

@@ -31,6 +31,7 @@
           </a>
         </li>
 
+        
 
         <!-- <li class="nav-item ">
           <a href="personal_info_view.php" class="nav-link <?php if($curPageName == 'personal_info_view.php') echo "active" ?>">
@@ -68,6 +69,7 @@
           </a>
         </li> -->
 
+        
         <li class="nav-item">
           <a href="apply.php" class="nav-link <?php if($curPageName == 'apply.php' OR $curPageName == 'post_apply.php' OR $curPageName == 'candidate_bank_challan.php' ) echo "active" ?>">
             <i class="nav-icon fa fa-tasks"></i>

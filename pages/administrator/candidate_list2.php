@@ -19,7 +19,7 @@ include "includes/header.php";
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-md-6">
-        <h4 class="m-0 text-dark">Project Wise Candidate's List</h4>
+        <h4 class="m-0 text-dark">Project Wise Candidate's Attendance List</h4>
       </div>
       <div class="col-md-6">
         <ol class="breadcrumb float-md-right">
@@ -36,18 +36,18 @@ include "includes/header.php";
       <div class="row m-0">
         <div class="col-md-2 text-center">
           <a class="navbar-brand" href="https://uts.com.pk">
-            <img src="../../images/logo.png" alt="logo" width="90" height="85">
+            <img src="../../images/uts-logo.png" alt="logo" width="200px" height="55px">
           </a>
         </div>
         <div class="col-md-2"></div>
         <div class="col-md-5 text-center mt-4">
           <h3 style="color: #00008B">Universal Testing Services</h3>
-          <h5 class="text-danger">Candidate's List</h5 class="text-danger">
+          <h5 class="text-danger">Candidate's Attendance List</h5 class="text-danger">
         </div>
       </div>
     </div>
-    <hr class="shadow mt-0">
-    <form method="post">
+    <hr class="shadow mt-0 printBlock">
+    <form method="post" class="printBlock">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
@@ -102,20 +102,22 @@ include "includes/header.php";
         </div>
       </div>
     </form>
-    <br>
+    <br class="printBlock">
+    <div class="row printBlock">
+      <div class="col-md-12">
+        <div class="form-group text-right">
+          <button class="btn btn-info shadow" onclick="dataPrint()">Print</button>
+        </div>
+      </div>
+    </div>
+    <hr class="mt-0">
     <div class="row">
       <div class="col-md-12">
         <div id="ajaxData" class="table-responsive"></div>
       </div>
     </div>
   </div>
-  <div class="row printBlock">
-    <div class="col-md-12">
-      <div class="form-group text-center">
-        <button class="btn btn-info shadow" onclick="dataPrint()">Print</button>
-      </div>
-    </div>
-  </div>
+  
 </section>
 
 

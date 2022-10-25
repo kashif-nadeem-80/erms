@@ -11,23 +11,34 @@ include('includes/header.php');
     <div class="container">
         <div class="card">
             <div class="card-body">
-                <div class="row">
+                <!-- <div class="row"> -->
 
 
-                    <div class="row p-0 m-0">
+                    <div class="row ">
 
-                        <div class="col-md-12 text-center text-primary">
+                        <div class="col-md-16 text-center text-primary">
 
-                            <div class="row">
+                            <!-- <div class="row"> -->
 
-                                <div class="col-md-12 table-responsive">
+                                <!-- <div class="col-md-12 table-responsive"> -->
 
-                                    <h4>Application Status</h4>
+                                    <!-- <h4>Application Status</h4> -->
 
-                                    <hr class="shadow" style="border: 1px solid #007bff; width: 120px; ">
+                            
+                    <p> <span style="font-size:x-large ; font-weight:bolder; padding-right: 80px;">
 
-                                    <table class="table table-striped table-bordered bg-white text-center"
-                                        style="font-size: 13px">
+                    Application Status </span> <span
+                            style="align-items:center ;">
+                            <img src="../../images/news1.gif" width="50px" height="50px">
+                             <a href="roll_no_slip.php" style="width:230px ; align-items: center;"
+                                class="btn  badge-pill badge-info shadow">Download Roll No Slip</a>
+                        </span> </p> 
+
+
+                                    <hr class="shadow" style="border: 1px solid #007bff; width: 520px; ">
+
+                                    <table class="table-hover table-responsive table table-striped table-bordered bg-white text-center" 
+                                    style="font-size: 11px; width: 100%; word-wrap: normal;">
 
                                         <thead class="bg-gradient-teal">
                                             <tr>
@@ -80,9 +91,9 @@ include('includes/header.php');
                                             <tr>
 
                                                 <td>
-                                                <span><img src="../../images/news1.gif" width="40px" height="40px"></span>  
-                                                <b><?php echo $status_c?></b></td>
-                                                <td><?php echo $status_detail ?></td>
+                                                <span></span>  
+                                                <b style="font-size: large; color: cyne ;"><?php echo $status_c?></b></td>
+                                                <td class=" text-danger text-bold"><?php echo $status_detail ?></td>
                                                 <td><?php echo $name ?></td>
                                                 <td><?php echo $father_name ?></td>
                                                 <td><?php echo $post_name ?></td>
@@ -103,6 +114,11 @@ include('includes/header.php');
                         </div>
 
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
 
                     <?php } ?>

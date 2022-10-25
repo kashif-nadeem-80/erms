@@ -468,9 +468,9 @@ $u_id = $_GET['u_id'];
                 <body>
                   <script>
                   Swal.fire(
-                  'Error !',
-                  'Register user not update, Some error occure',
-                  'error'
+                  'Updated !',
+                  'Personal info update successfully',
+                  'success'
                   ).then((result) => {
                   if (result.isConfirmed) {
                   window.location.href = 'registered_users_details.php?id=$u_id';
@@ -691,19 +691,24 @@ if (isset($_GET['deletId'])) {
     }
 
     function getAge() {
-        let d_o_b = document.getElementById('d_o_b').value;
-        let d_o_b1 = new Date(d_o_b);
-        let currentDate = new Date();
-        let months = 0;
-        months = (currentDate.getFullYear() - d_o_b1.getFullYear()) * 12;
-        months -= d_o_b1.getMonth();
-        months += currentDate.getMonth();
+        var mdate = $("#d_o_b").val();
+    var yearThen = parseInt(mdate.substring(0,4), 10);
+    var monthThen = parseInt(mdate.substring(5,7), 10);
+    var dayThen = parseInt(mdate.substring(8,10), 10);
+    
+    var today = new Date();
+    var birthday = new Date(yearThen, monthThen-1, dayThen);
+    
+    var differenceInMilisecond = today.valueOf() - birthday.valueOf();
+    
+    var year_age = Math.floor(differenceInMilisecond / 31536000000);
+    var day_age = Math.floor((differenceInMilisecond % 31536000000) / 86400000);
 
-        let dur1 = Math.floor(months / 12)
-        let dur2 = (months / 12) - dur1
-        let dur3 = Math.floor(dur2 * 12)
-        let age = dur1 + " years & " + dur3 + " months";
-        document.getElementById('agee').value = age;
+    var month_age = Math.floor(day_age/30);
+    
+    day_age = day_age % 30;
+
+    $("#agee").val(year_age + " years & " + month_age + " months");
     }
 </script>
 

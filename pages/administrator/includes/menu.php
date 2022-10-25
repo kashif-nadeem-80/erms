@@ -1,14 +1,21 @@
 <?php
-
 session_start();
+
 // $_SESSION['name']='kashif';
+
 // echo "asdddddddddddddddddd".  print_r($_SESSION, TRUE) ;
 
 // if (!isset($_SESSION['admin']) || $_SESSION['user_login_status'] != 1) {
+
 if (!isset($_SESSION['admin']) ) {
 
-  echo "<script>window.location.href = '../../admin.php'; </script>";
-  echo "<script> alert 'Check here....' </script>";
+
+
+ // echo "<script>window.location.href = '../../admin.php'; </script>";
+
+  
+
+
 
 }
 
@@ -160,7 +167,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
                 <p>
 
-                  In-Active Projects
+                  Completed Projects
 
                 </p>
 
@@ -245,21 +252,6 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
                 <p>
 
                   Expire Projects
-
-                </p>
-
-              </a>
-
-            </li>
-            <li class="nav-item">
-
-              <a href="challan_thumbnail.php" class="nav-link <?php if ($curPageName == 'challan_thumpnail.php') echo "active bg-primary" ?>">
-
-                <i class="far fa-circle nav-icon"></i>
-
-                <p>
-
-                  Challan Thumnail
 
                 </p>
 
@@ -599,13 +591,37 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
           <ul class="nav nav-treeview">
 
-            <!-- <li class="nav-item">
+            <li class="nav-item">
 
               <a href="candidate_list.php" class="nav-link <?php if ($curPageName == 'candidate_list.php') echo "active bg-primary " ?> ">
 
                 <i class="far fa-circle nav-icon"></i>
 
-                <p>Post Wise List</p>
+                <p>Candidates List</p>
+
+              </a>
+
+            </li>
+
+            <!-- <li class="nav-item">
+
+              <a href="candidate_multiple.php" class="nav-link <?php if ($curPageName == 'candidate_multiple.php') echo "active bg-primary " ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>Candidates With<br> Multiple Posts</p>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a href="candidate_multiple2.php" class="nav-link <?php if ($curPageName == 'candidate_multiple2.php') echo "active bg-primary" ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>Multiple Posts <br>Attendance List</p>
 
               </a>
 
@@ -617,7 +633,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
                 <i class="far fa-circle nav-icon"></i>
 
-                <p>Center Wise List</p>
+                <p>Attendance List</p>
 
               </a>
 
@@ -629,7 +645,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
 
 
-        <li class="nav-item has-treeview <?php if ($curPageName == 'result.php') { echo " menu-open "; } ?>">
+        <li class="nav-item has-treeview <?php if ($curPageName == 'result.php' OR $curPageName == 'result_upload.php' OR $curPageName == 'result_marks_wise.php' OR $curPageName == 'result_aggregate_wise.php' OR $curPageName == 'result_status.php' OR $curPageName == 'result_shortlisted.php' OR $curPageName == 'total_marks_weightage_edit.php' OR $curPageName == 'total_marks_weightage.php' OR $curPageName == 'marks_weightage.php') { echo " menu-open "; } ?>">
 
           <a href="" class="nav-link">
 
@@ -649,6 +665,54 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
             <li class="nav-item">
 
+              <a href="total_marks_weightage.php" class="nav-link <?php if ($curPageName == 'total_marks_weightage.php' or $curPageName == 'total_marks_weightage_edit.php') echo "active bg-primary " ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Marks & Weightage
+
+                </p>
+
+              </a>
+
+            </li>
+
+            <!--<li class="nav-item">-->
+
+            <!--  <a href="marks_weightage.php" class="nav-link <?php if ($curPageName == 'marks_weightage.php') echo "active bg-primary " ?> ">-->
+
+            <!--    <i class="far fa-circle nav-icon"></i>-->
+
+            <!--    <p>-->
+
+            <!--      New Marks & Weightage-->
+
+            <!--    </p>-->
+
+            <!--  </a>-->
+
+            <!--</li>-->
+
+            <li class="nav-item">
+
+              <a href="result_upload.php" class="nav-link <?php if ($curPageName == 'result_upload.php') echo "active bg-primary " ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Upload Result
+
+                </p>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
               <a href="result.php" class="nav-link <?php if ($curPageName == 'result.php') echo "active bg-primary " ?> ">
 
                 <i class="far fa-circle nav-icon"></i>
@@ -656,6 +720,70 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
                 <p>
 
                   Check Result
+
+                </p>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a href="result_marks_wise.php" class="nav-link <?php if ($curPageName == 'result_marks_wise.php') echo "active bg-primary " ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Marks Wise
+
+                </p>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a href="result_aggregate_wise.php" class="nav-link <?php if ($curPageName == 'result_aggregate_wise.php') echo "active bg-primary " ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Aggregate Wise
+
+                </p>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a href="result_status.php" class="nav-link <?php if ($curPageName == 'result_status.php') echo "active bg-primary " ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Shortlist Status
+
+                </p>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a href="result_shortlisted.php" class="nav-link <?php if ($curPageName == 'result_shortlisted.php') echo "active bg-primary " ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Shortlist Candidate
 
                 </p>
 
@@ -729,11 +857,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
 
 
-        <li class="nav-item has-treeview <?php if ($curPageName == 'user_add.php' or $curPageName == 'user_list.php' or $curPageName == 'user_edit.php' or $curPageName == 'assign_project_operater.php' or $curPageName == 'assign_project_edit.php') {
-
-                                            echo "menu-open";
-
-                                          } ?>">
+        <li class="nav-item has-treeview <?php if ($curPageName == 'user_add.php' or $curPageName == 'user_list.php' or $curPageName == 'user_edit.php') { echo "menu-open"; } ?>">
 
           <a href="#" class="nav-link">
 
@@ -783,9 +907,33 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
             </li>
 
+          </ul>
+
+        </li>
+
+
+
+        <li class="nav-item has-treeview <?php if ($curPageName == 'assign_project_operater.php' OR $curPageName == 'report_dataentryoperator.php') { echo "menu-open"; } ?>">
+
+          <a href="#" class="nav-link">
+
+            <i class="nav-icon fa fa-users-cog"></i>
+
+            <p>
+
+              Data Entry Operaors
+
+              <i class="right fas fa-angle-left"></i>
+
+            </p>
+
+          </a>
+
+          <ul class="nav nav-treeview">
+
             <li class="nav-item">
 
-              <a href="assign_project_operater.php" class="nav-link <?php if ($curPageName == 'assign_project_operater.php' or $curPageName == 'assign_project_edit.php') echo "active bg-primary " ?> ">
+              <a href="assign_project_operater.php" class="nav-link <?php if ($curPageName == 'assign_project_operater.php' or $curPageName == 'assign_project_edit.php') echo "active bg-primary" ?> ">
 
                 <i class="far fa-circle nav-icon"></i>
 
@@ -799,17 +947,85 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
             </li>
 
+            <li class="nav-item">
+
+              <a href="report_dataentryoperator.php" class="nav-link <?php if ($curPageName == 'report_dataentryoperator.php') echo "active bg-primary" ?>">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Operator Report
+
+                </p>
+
+              </a>
+
+            </li>
+
           </ul>
 
         </li>
 
 
 
-        <li class="nav-item has-treeview <?php if ($curPageName == 'registered_users.php' or $curPageName == 'registered_users_details.php') {
+        <li class="nav-item has-treeview <?php if ($curPageName == 'assign_project_qec.php' or $curPageName == 'report_qec.php') { echo "menu-open"; } ?>">
 
-                                            echo "menu-open";
+          <a href="#" class="nav-link">
 
-                                          } ?>">
+            <i class="nav-icon fa fa-users-cog"></i>
+
+            <p>
+
+              QEC Operaors
+
+              <i class="right fas fa-angle-left"></i>
+
+            </p>
+
+          </a>
+
+          <ul class="nav nav-treeview">
+
+            <li class="nav-item">
+
+              <a href="assign_project_qec.php" class="nav-link <?php if ($curPageName == 'assign_project_qec.php') echo "active bg-primary" ?> ">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Assign Project
+
+                </p>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a href="report_qec.php" class="nav-link <?php if ($curPageName == 'report_dataentryoperator.php') echo "active bg-primary" ?>">
+
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>
+
+                  Operator Report
+
+                </p>
+
+              </a>
+
+            </li>
+
+          </ul>
+
+        </li>
+
+
+
+        <li class="nav-item has-treeview <?php if ($curPageName == 'registered_users.php' or $curPageName == 'registered_users_details.php') { echo "menu-open"; } ?>">
 
           <a href="registered_users.php" class="nav-link <?php if ($curPageName == 'registered_users.php' or $curPageName == 'registered_users_details.php' or $curPageName == 'registered_user_update.php' OR $curPageName=='registered_education_update.php' OR $curPageName=='registered_exp_update.php' OR $curPageName =='registered_add_education.php' OR $curPageName == 'registered_add_experience.php') echo "active bg-primary" ?>">
 
@@ -827,11 +1043,25 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
 
 
-        <li class="nav-item has-treeview <?php if ($curPageName == 'report_dataentryoperator.php') {
+        <li class="nav-item has-treeview <?php if ($curPageName == 'multiple_applied_candidates.php') { echo "menu-open"; } ?>">
 
-                                            echo "menu-open";
+          <a href="multiple_applied_candidates.php" class="nav-link <?php if ($curPageName == 'multiple_applied_candidates.php') echo "active bg-primary" ?>">
 
-                                          } ?>">
+            <i class="nav-icon fa fa-users"></i>
+
+            <p>Multiple Post Applied
+
+              <i class="right fas"></i>
+
+            </p>
+
+          </a>
+
+        </li>
+
+
+
+        <li class="nav-item has-treeview <?php if ($curPageName == 'report_accept_reject.php') { echo "menu-open"; } ?>">
 
           <a href="#" class="nav-link">
 
@@ -851,13 +1081,13 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
             <li class="nav-item">
 
-              <a href="report_dataentryoperator.php" class="nav-link <?php if ($curPageName == 'report_dataentryoperator.php') echo "active bg-primary" ?>">
+              <a href="report_accept_reject.php" class="nav-link <?php if ($curPageName == 'report_accept_reject.php') echo "active bg-primary" ?>">
 
                 <i class="far fa-circle nav-icon"></i>
 
                 <p>
 
-                  Operator Report
+                  Reject/Accept
 
                 </p>
 
@@ -889,7 +1119,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
 
 
-        <li class="nav-item has-treeview <?php if ($curPageName == 'add_degree_level.php' or $curPageName == 'add_degree_level_edit.php' or $curPageName == 'add_degree.php' or $curPageName == 'add_degree_edit.php' or $curPageName == 'zone.php' or $curPageName == 'zone_edit.php' or $curPageName == 'domicile_province.php' or $curPageName == 'domicile_province_edit.php' or $curPageName == 'domicile_district.php' or $curPageName == 'domicile_district_edit.php' or $curPageName == 'test_city.php' or $curPageName == 'test_city_edit.php' or $curPageName == 'signatures.php') { echo "menu-open"; } ?>">
+        <li class="nav-item has-treeview <?php if ($curPageName == 'add_degree_level.php' or $curPageName == 'add_degree_level_edit.php' or $curPageName == 'add_degree.php' or $curPageName == 'add_degree_edit.php' or $curPageName == 'zone.php' or $curPageName == 'zone_edit.php' or $curPageName == 'domicile_province.php' or $curPageName == 'domicile_province_edit.php' or $curPageName == 'domicile_district.php' or $curPageName == 'domicile_district_edit.php' or $curPageName == 'test_city.php' or $curPageName == 'test_city_edit.php' or $curPageName == 'signatures.php' or $curPageName == 'signatures.php') { echo "menu-open"; } ?>">
 
           <a href="#" class="nav-link">
 
@@ -907,7 +1137,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 
           <ul class="nav nav-treeview">
 
-
+            
 
             <li class="nav-item">
 

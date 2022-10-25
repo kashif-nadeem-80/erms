@@ -58,11 +58,11 @@ include "includes/header.php";
       </div>
 
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="form-group">
             <label>Roll No Start From</label>
-            <input type="text" placeholder="Roll No Start From" id="pre_rollNo" name="Pre_RollNo" pattern="[0-9]{6,}" required onkeyup="check_preNo()" class="form-control">
-            <p class="text-danger">Most be unique & atleast 6 digits, Format: [001122]</p>
+            <input type="text" placeholder="Roll No Start From" id="pre_rollNo" name="Pre_RollNo" onkeyup="check_preNo()" class="form-control">
+            <p class="text-danger">Most be unique, atleast 6 digits & not start from zero, Format: [112233]</p>
           </div>
         </div>
       </div>
@@ -92,6 +92,7 @@ include "includes/header.php";
             $postId = $_POST['post'];
             $total_candidates = $_POST['total_candidates'];
             $Pre_RollNo = $_POST['Pre_RollNo'];
+            
 
             $fetch = "SELECT ac.id,ac.roll_no FROM assigned_center AS ac INNER JOIN projects_posts As p ON p.id = ac.post_id INNER JOIN projects AS pt ON pt.id = p.project_id WHERE ac.roll_no = '0' AND ac.post_id = '$postId' AND pt.id = '$projId' ORDER BY ac.id ASC LIMIT $total_candidates";
             $runQ = mysqli_query($connection,$fetch);
@@ -101,12 +102,11 @@ include "includes/header.php";
               echo"<script>$('#preloader').fadeIn(100);</script>";
               $insert = "INSERT INTO rollno_prefix (roll_pre) VALUES('$Pre_RollNo')";
               mysqli_query($connection,$insert);
-              $rollNoInc = 0;
+              $rollNoInc = $Pre_RollNo;
               while ($row = mysqli_fetch_array($runQ)) {
                 $rollNoInc++;
                 $ass_center = $row['id'];
-                $rolNo = $Pre_RollNo."".$rollNoInc;
-                $update = "UPDATE `assigned_center` SET roll_no = '$rolNo' WHERE id = '$ass_center'";
+                $update = "UPDATE `assigned_center` SET roll_no = '$rollNoInc' WHERE id = '$ass_center'";
                 $runI = mysqli_query($connection,$update);
               }
               echo"<script>$('#preloader').fadeOut(100);</script>";

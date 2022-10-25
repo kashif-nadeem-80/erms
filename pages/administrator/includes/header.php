@@ -1,8 +1,9 @@
 <?php
   include('includes/db.php');
   date_default_timezone_set("Asia/Karachi");
+ob_start();
+
 ?>
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +60,7 @@
   </nav>
 
   <?php
-     include('menu.php');
+    include('menu.php');
   ?>
     <style>
 
@@ -153,8 +154,8 @@
 
   if (isset($_POST['logOut']))
   {
-    unset($_SESSION['admin']);
-    echo "<script>window.location.href = '../../admin.php';</script>";
+    unset($_SESSION['uts_admin']);
+    echo "<script>window.location.href = '../../index.php';</script>";
   }
 
 ?>

@@ -183,8 +183,8 @@ include "includes/header.php";
               <thead class="bg-dark">
                 <tr>
                   <th>S.No</th>
-                  <th>City</th>
                   <th>Test Center</th>
+                  <th>City</th>
                   <th>Total Capacity</th>
                   <th>Address</th>
                   <th>Create Date</th>

@@ -81,14 +81,14 @@ include "includes/header.php";
                           </div>
                           <div class="col-md-6">
                             <label>Contact</label>
-                            <input type="text" name="contactt" placeholder="Contact" class="form-control" autocomplete="off" required>
+                            <input type="text" name="contactt" placeholder="Contact" class="form-control" autocomplete="off">
                           </div>
                           
                         </div><br>
                         <div class="row">
                           <div class="col-md-4">
                             <label>Image</label>
-                            <input type="file" name="imagg" class="form-control" id="file1" accept="image/*" onchange="showImage1(event);" autocomplete="off" style="overflow: hidden;" required>
+                            <input type="file" name="imagg" class="form-control" id="file1" accept="image/*" onchange="showImage1(event);" autocomplete="off" style="overflow: hidden;">
                           </div>
                           <div class="col-md-4">
                             <div class="form-group text-center">

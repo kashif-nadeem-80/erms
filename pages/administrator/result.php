@@ -59,6 +59,42 @@ include "includes/header.php";
           </select>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>District</label>
+          <select class="form-control" id="dis_Id" onchange="getApplicantData()" required>
+            <option value="all">All</option>
+            <?php
+            $fetchData = "SELECT * FROM district ORDER BY dis_name ASC";
+            $run = mysqli_query($connection,$fetchData);
+            while ($row = mysqli_fetch_array($run)) {
+              $id = $row['id'];
+              $name = $row['dis_name'];
+            ?>
+            <option value="<?php echo $id ?>"><?php echo $name ?></option>
+          <?php } ?>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Gender</label>
+          <select class="form-control" id="gendr" onchange="getApplicantData()" required>
+            <option value="all">Both</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Order By</label>
+          <select class="form-control" id="order_by" onchange="getApplicantData()" required>
+            <option value="Aggregate">Aggregate</option>
+            <option value="Marks">Written Test Marks</option>
+          </select>
+        </div>
+      </div>
     </div>
 
     <div class="row printBlock">
@@ -75,7 +111,7 @@ include "includes/header.php";
 
     <div class="row">
       <div class="col-md-12">
-        <div id="ajaxData" class="table-responsive">
+        <div id="ajaxData">
         </div>
       </div>
     </div>
@@ -110,6 +146,9 @@ include "includes/header.php";
 
     let proj_id = $("#proj").val();
     let post_id = $("#post_id").val();
+    let dis_Id = $("#dis_Id").val();
+    let gendr = $("#gendr").val();
+    let order_by = $("#order_by").val();
 
     if(proj_id != '' && post_id != '')
     {
@@ -120,7 +159,10 @@ include "includes/header.php";
         url:'result_ajax.php',
         data: {
             proj_id: proj_id,
-            postId: post_id
+            postId: post_id,
+            disId: dis_Id,
+            gender: gendr,
+            order_by: order_by
         },
         dataType: "html",
         success:function(result){
@@ -146,6 +188,7 @@ function export_all()
 
 function printData()
 {
+  $('#export_table').removeClass("table-responsive");
   $('.datatable').DataTable().destroy();
   $('#export_table').DataTable().destroy();
   window.print();

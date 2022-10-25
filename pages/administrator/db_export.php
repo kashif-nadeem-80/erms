@@ -43,7 +43,7 @@ for($i=0; $i < $fields_count; $i++){
 $row_content =  str_replace("\n","\\n",$mysqli->real_escape_string($row[$i]));
 switch($fields[$i]->type){
 case 8: case 3:
-$contents .=  $row_content;
+$contents .=  "'". $row_content ."'";
 break;
 default:
 $contents .= "'". $row_content ."'";
@@ -73,15 +73,15 @@ fclose($fp);
 return $backup_file_name;
 }
 $options = array(
-'db_host'=> $uts_host,  //mysql host
-'db_uname' => $uts_username,  //user
-'db_password' => $uts_password, //pass
-'db_to_backup' => $uts_dbname, //database name
+'db_host'=> $server_host,  //mysql host
+'db_uname' => $server_username,  //user
+'db_password' => $server_password, //pass
+'db_to_backup' => $server_dbname, //database name
 'db_backup_path' => '../../dbBackup', //where to backup
 'db_exclude_tables' => array() //tables to exclude
 );
 $backup_file_name=backup_mysql_database($options);
-$fetchD = "SELECT * FROM backup";
+$fetchD = "SELECT * FROM backup ORDER BY id ASC";
 $runD = mysqli_query($connection,$fetchD);
 $countRow = mysqli_num_rows($runD);
 if($countRow >= 60)
@@ -89,7 +89,7 @@ if($countRow >= 60)
 $rowD = mysqli_fetch_array($runD);
 $dbId = $rowD['id'];
 $dbnam = $rowD['name'];
-$path = "dbBackup/$dbnam";
+$path = "../../dbBackup/$dbnam";
 unlink($path);
 $deleteD = "DELETE FROM backup WHERE id = '$dbId'";
 $runDelete = mysqli_query($connection,$deleteD);

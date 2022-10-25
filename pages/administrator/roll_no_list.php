@@ -22,7 +22,7 @@ include "includes/header.php";
 			<div class="col-md-12">
 				<div class="row">
 					<div class="col-md-12 table-responsive">
-						<table class="table table-striped table-bordered datatable bg-white text-center" style="font-size: 12px" data-page-length="100">
+						<table class="table table-striped table-bordered datatable bg-white text-center" style="font-size: 12px" data-page-length="50">
 							<thead class="bg-dark">
 								<tr>
 									<th>S.No</th>
@@ -46,7 +46,9 @@ include "includes/header.php";
                                         LEFT JOIN projects AS pr ON pr.id = pp.project_id
                                         INNER JOIN candidate_applied_post AS cap ON cap.id = ac.cand_applied_id 
                                         INNER JOIN candidates AS c ON c.id = cap.candidate_id 
-                                    WHERE ac.roll_no != '0' AND pr.status = '1' ORDER BY ac.roll_no ASC";
+                                    WHERE ac.roll_no != '0' AND pr.status = '1' and c.id > 39500
+                                    ORDER BY ac.roll_no ASC
+                                    limit 700";
 								$runData = mysqli_query($connection,$query);
 								while($rowData = mysqli_fetch_array($runData)) {
 								$count++;

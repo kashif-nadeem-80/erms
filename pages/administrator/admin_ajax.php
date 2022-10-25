@@ -187,7 +187,7 @@ if (isset($_POST['apply_id'])) {
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <img src="<?php echo $challan_path ?>" width="98%" height="260px">
+          <a href="<?php echo $challan_path ?>" target="_blank"><img src="<?php echo $challan_path ?>" width="98%" height="260px"></a>
         </div>
       </div>
     </div>
@@ -226,11 +226,10 @@ if (isset($_POST['applyId_for_status'])) {
           <div class="form-group">
             <label for="">Application</label>
             <select name="application" class="form-control">
-              <option value="<?php echo $application ?>"><?php echo $application ?></option>
-              <option value="Pending">Pending</option>
-              <option value="Accepted">Accepted</option>
-              <option value="Inquiry">Inquiry</option>
-              <option value="Rejected">Rejected</option>
+              <option value="Pending" <?php if($application == 'Pending'){ echo "selected";}?> >Pending</option>
+              <option value="Accepted" <?php if($application == 'Accepted'){ echo "selected";}?>>Accepted</option>
+              <option value="Inquiry" <?php if($application == 'Inquiry'){ echo "selected";}?>>Inquiry</option>
+              <option value="Rejected" <?php if($application == 'Rejected'){ echo "selected";}?>>Rejected</option>
             </select>
           </div>
         </div>
@@ -271,6 +270,21 @@ if (isset($_POST['application_id'])) {
     echo 0;
   }
 }
+if (isset($_POST['updateStatus'])) {
+    $application = $_POST['status'];
+    $details1 = $_POST['reason'];
+    $application_id = $_POST['appId'];
+    date_default_timezone_set("Asia/Karachi");
+    $date = date("Y-m-d H:i:s");
+    $query1 = "UPDATE `candidate_applied_post` SET `status` = '$application',`status_details` = '$details1',`update_date` = '$date' WHERE id = '$application_id'";
+    $result1 = mysqli_query($connection, $query1);
+    if ($result1) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+
 
 
 /////////// Education Degree Image ///////////////
@@ -287,7 +301,7 @@ if (isset($_POST['edu_image1'])) {
   <div class="modal-body" style="padding: 0px !important;  text-align: center;">
     <div class="row">
       <div class="col-md-12"><br>
-        <img src="<?php echo $edu_image1 ?>" width="98%" height="340px">
+        <img src="<?php echo $edu_image1 ?>" width="98%" />
       </div>
     </div>
     <br>
@@ -316,7 +330,7 @@ if (isset($_POST['std_image1'])) {
   <div class="modal-body" style="padding: 0px !important;  text-align: center;">
     <div class="row">
       <div class="col-md-12"><br>
-        <img src="<?php echo $std_image1 ?>" width="98%" height="340px">
+        <img src="<?php echo $std_image1 ?>" width="98%">
       </div>
     </div>
     <br>

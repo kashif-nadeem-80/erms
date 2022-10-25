@@ -51,6 +51,42 @@ include "includes/header.php";
 
       <div class="row">
         <div class="col-md-4">
+          <div class="form-group">
+            <label>Religion</label>
+            <select class="form-control" name="religion" required>
+              <option value="all">Eligible All</option>
+              <option value="Muslim">Eligible Muslim</option>
+              <option value="Non-Muslim">Eligible Non-Muslim</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Gender</label>
+            <select class="form-control" name="gender" required>
+              <option value="all">Eligible All</option>
+              <option value="Male">Eligible Male</option>
+              <option value="Female">Eligible Female</option>
+              <option value="Other">Eligible Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Physical Eligibility</label>
+            <select class="form-control" name="disability" required>
+              <option value="all">Eligible All</option>
+              <option value="Disabled">Eligible Only Disabled</option>
+              <option value="Fit">Eligible Only Not Disabled</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-md-4">
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
@@ -460,6 +496,59 @@ include "includes/header.php";
       {
         echo"<script>$('#preloader').fadeIn(100);</script>";
         $post = $_POST['post'];
+
+        $religion = $_POST['religion'];
+        $gender = $_POST['gender'];
+        $disability = $_POST['disability'];
+        $date       = date("Y-m-d H:i:s");
+
+        // Religion
+        if($religion != 'all')
+        {
+          if($religion == 'Muslim')
+          {
+            $queryRelg = "UPDATE candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id SET cp.status = 'Rejected', cp.status_details = 'No Required Religion', cp.update_date = '$date' WHERE cp.post_id = '$post' AND cp.status != 'Rejected' AND c.religion = 'Non-Muslim'";
+          }
+          else
+          {
+            echo $queryRelg = "UPDATE candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id SET cp.status = 'Rejected', cp.status_details = 'No Required Religion', cp.update_date = '$date' WHERE cp.post_id = '$post' AND cp.status != 'Rejected' AND c.religion = 'Muslim'";
+          }
+          $run_relg = mysqli_query($connection,$queryRelg);
+        }
+
+        // Gender
+        if($gender != 'all')
+        {
+          if($gender == 'Male')
+          {
+            $queryGend = "UPDATE candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id SET cp.status = 'Rejected', cp.status_details = 'No Required Gender', cp.update_date = '$date' WHERE cp.post_id = '$post' AND cp.status != 'Rejected' AND c.gender != 'Male'";
+          }
+          elseif($gender == 'Female')
+          {
+            $queryGend = "UPDATE candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id SET cp.status = 'Rejected', cp.status_details = 'No Required Gender', cp.update_date = '$date' WHERE cp.post_id = '$post' AND cp.status != 'Rejected' AND c.gender != 'Female'";
+          }
+          else
+          {
+            $queryGend = "UPDATE candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id SET cp.status = 'Rejected', cp.status_details = 'No Required Gender', cp.update_date = '$date' WHERE cp.post_id = '$post' AND cp.status != 'Rejected' AND c.gender != 'Other'";
+          }
+          $run_Gend = mysqli_query($connection,$queryGend);
+        }
+
+        // Disability
+        if($disability != 'all')
+        {
+          if($disability == 'Disabled')
+          {
+            $queryDis = "UPDATE candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id SET cp.status = 'Rejected', cp.status_details = 'No Required Disability', cp.update_date = '$date' WHERE cp.post_id = '$post' AND cp.status != 'Rejected' AND c.disability != 'Yes'";
+          }
+          else
+          {
+            $queryDis = "UPDATE candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id SET cp.status = 'Rejected', cp.status_details = 'You are disabled', cp.update_date = '$date' WHERE cp.post_id = '$post' AND cp.status != 'Rejected' AND c.disability != 'No'";
+          }
+
+          $run_Dis = mysqli_query($connection,$queryDis);
+        }
+
         $province1 = $_POST['province1'];
         $province2 = $_POST['province2'];
         $province3 = $_POST['province3'];
@@ -469,7 +558,6 @@ include "includes/header.php";
         $province7 = $_POST['province7'];
         $province8 = $_POST['province8'];
         $province9 = $_POST['province9'];
-        $date       = date("Y-m-d H:i:s");
 
         $query = "UPDATE candidate_applied_post AS cp INNER JOIN candidates AS c ON c.id = cp.candidate_id SET cp.status = 'Rejected', cp.status_details = 'Domicile is missing', cp.reject_by_quota = 'reject', cp.update_date = '$date' WHERE cp.post_id = '$post' AND cp.status != 'Rejected' AND c.district_id IS NULL";
         $run_query = mysqli_query($connection,$query);
@@ -678,7 +766,6 @@ include "includes/header.php";
       ?>
   </div>
 </section>
-
 <?php
   include "includes/footer.php";
 ?>

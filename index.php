@@ -331,12 +331,13 @@ Apply Now
 
                             <tr>
 
-                                <td colspan="3" class="text-center font-weight-bold text-danger">No Post Available For
-                                    Apply
+                                <td colspan="3" class="text-center font-weight-bold text-danger"><===No Post to
+                                    Apply ===>
                                     <br>
+                                    <hr class="shadow">
                                     FFBL, FPCL & FML Apprenticeship Program Candidates can check the Accepted /
                                     Rejected Status.
-                                    <a href="online_registration.php" style="width:200px ; align-items: center;"
+                                    <a href="online_registration_up.php" style="width:200px ; align-items: center;"
                                 class="btn  badge-pill  badge-info shadow">Click to Check Status</a>
                                 </td>
 

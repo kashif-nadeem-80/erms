@@ -148,7 +148,7 @@ include "includes/header.php";
           $Acapacity = $_POST['Acapacity'] + $givenCap;
           $Aapply = $_POST['Aapply'] + $givenCap;
 
-          $fetch = "SELECT ca.id,ac.post_id FROM candidate_applied_post AS ca LEFT JOIN assigned_center As ac ON ac.cand_applied_id = ca.id LEFT JOIN center_session AS cs ON cs.id = ac.session_id  WHERE ca.post_id = '$postId' AND ca.city_id = '$cityId' AND ac.post_id IS NULL ORDER BY ca.id ASC LIMIT $givenCap";
+          $fetch = "SELECT ca.id,ac.post_id FROM candidate_applied_post AS ca LEFT JOIN assigned_center As ac ON ac.cand_applied_id = ca.id LEFT JOIN center_session AS cs ON cs.id = ac.session_id  WHERE ca.post_id = '$postId' AND ca.city_id = '$cityId' AND ac.post_id IS NULL AND ca.status = 'Accepted' ORDER BY ca.id ASC LIMIT $givenCap";
           $runQ = mysqli_query($connection,$fetch);
           while ($row = mysqli_fetch_array($runQ)) {
             $cap_id = $row['id'];
