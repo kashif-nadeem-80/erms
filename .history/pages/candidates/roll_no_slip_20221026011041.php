@@ -89,7 +89,7 @@ $canddate_id = $_SESSION['candd_id'];
                         INNER JOIN center_session AS cs ON cs.id = ac.session_id 
                         INNER JOIN test_centers AS t ON t.id = cs.center_id 
                         INNER JOIN candidates AS c ON c.id = cap.candidate_id 
-                        WHERE  c.id = '$canddate_id'";
+                        WHERE  c.id = '110'";
                         //ac.post_id IN ($posts_id) AND
                     $result = mysqli_query($connection,$query);
                     $allPosts = [];
@@ -183,26 +183,26 @@ $canddate_id = $_SESSION['candd_id'];
                             </div>
                             <p></p>
                             <div class="row">
-                                <div class="col-md-12  font-weight-bold">
+                                <div class="col-md-12">
 								<span class="m-0">1. You are required to bring this Roll No Slip along with your original Identity Card for identification. No other identification
 									documents like Passport, Driving License and Original Degrees are acceptable for identification, only original CNIC is
 								acceptable with Roll No Slip.</span>
 								<!-- <p class="m-0">2. <strong>Candidates who applied more than one for the same post (regular & contract) will have a single paper (Except Statistical Assistant SR.(01,19,28)) .</strong></p>
 								<p class="m-0">2. <strong>جن امیدواروں نے ایک ججائے گی. ان پپیے ایک سے زیادہ درخواستیں (باقاعدہ اور معاہدہ) ان کے پاس ایک ہی پیپر ہوگا (سوائے شماریاتی اسسٹنٹ SR کے۔(01,19,28))</strong></p> -->
-								<p class="m-0">2. APPLICANT WILL NOT ALLOWED TO ENTER THE TEST CENTER PREMISES AFTER THE TEST STARTING TIME.</p>
-                                    <p class="m-0">3. You are also required to bring a Clipboard and ball pen/Marker (Black or Blue) with you. Clipboard should be clean without
+								<p class="m-0">3. APPLICANT WILL NOT ALLOWED TO ENTER THE TEST CENTER PREMISES AFTER THE TEST STARTING TIME.</p>
+                                    <p class="m-0">4. You are also required to bring a Clipboard and ball pen/Marker (Black or Blue) with you. Clipboard should be clean without
                                         any writing. No paper for rough work is allowed.</p>
-                                    <p class="m-0">4. Mobile Phone/Calculator or any other electronic device and wearable is not allowed. Please leave it outside the test center.</p>
-                                    <p class="m-0">5. Center Management is not responsible for keeping student’s belongings/valuables. No ladies hand bags are allowed in the
+                                    <p class="m-0">5. Mobile Phone/Calculator or any other electronic device and wearable is not allowed. Please leave it outside the test center.</p>
+                                    <p class="m-0">6. Center Management is not responsible for keeping student’s belongings/valuables. No ladies hand bags are allowed in the
                                         center</p>
-                                    <p class="m-0">6. Any kind of weapon is strictly prohibited in the Examination Hall.
+                                    <p class="m-0">7. Any kind of weapon is strictly prohibited in the Examination Hall.
                                     </p>
-                                    <p class="m-0">7. This is a provisional test subject to verification of your original documents, any discrepancy found later at any stage you will
+                                    <p class="m-0">8. This is a provisional test subject to verification of your original documents, any discrepancy found later at any stage you will
                                         be disqualified.</p>
-                                    <p class="m-0">8. Applicant should Reach the Test Center Half an Hour Before Reporting time.</p>
-                                    <p class="m-0">9. Candidates can not leave the Examination Hall before Completion of Half Time of the Test.</p>
-                                    <p class="m-0">10. Candidate who is found Either copying or receving Assistance from others will be Disqualied</p>
-                                    <p>11. Keep visiting UTS website <a href="http://www.uts.com.pk" target="_blank">www.uts.com.pk</a> for further information and test result
+                                    <p class="m-0">9. Applicant should Reach the Test Center Half an Hour Before Reporting time.</p>
+                                    <p class="m-0">10. Candidates can not leave the Examination Hall before Completion of Half Time of the Test.</p>
+                                    <p class="m-0">11. Candidate who is found Either copying or receving Assistance from others will be Disqualied</p>
+                                    <p>12. Keep visiting UTS website <a href="http://www.uts.com.pk" target="_blank">www.uts.com.pk</a> for further information and test result
                                     </p>
                                 </div>
                             </div>

@@ -82,14 +82,14 @@ include "includes/header.php";
                                                 class="Data_Ajax btn btn-sm btn-success title shadow">Upload Challan</a> -->
                                             <?php } else
                       { ?>
-                                            <!-- <a style="margin-top: 2px" data-id="<?php echo $id ?>" href="#edit"
+                                            <a style="margin-top: 2px" data-id="<?php echo $id ?>" href="#edit"
                                                 data-toggle='modal' title="View Challan"
                                                 class="Data_Ajax2 btn btn-sm btn-info title shadow"><i
                                                     class="fa fa-receipt"></i></a>
                                             <a style="margin-top: 2px" data-id="<?php echo $id ?>" href="#edit"
                                                 data-toggle='modal' title="Update Challan"
                                                 class="Data_Ajax3 btn btn-sm btn-success title shadow"><i
-                                                    class="fa fa-edit"></i></a> -->
+                                                    class="fa fa-edit"></i></a>
                                             <?php } ?>
                                             <!-- <a href="candidate_apply_info.php?apply_id=<?php echo $id ?>"
                                                 class="btn btn-sm btn-warning title shadow" title="All Details"><i

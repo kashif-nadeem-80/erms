@@ -89,7 +89,7 @@ $canddate_id = $_SESSION['candd_id'];
                         INNER JOIN center_session AS cs ON cs.id = ac.session_id 
                         INNER JOIN test_centers AS t ON t.id = cs.center_id 
                         INNER JOIN candidates AS c ON c.id = cap.candidate_id 
-                        WHERE  c.id = '$canddate_id'";
+                        WHERE  c.id = '110'";
                         //ac.post_id IN ($posts_id) AND
                     $result = mysqli_query($connection,$query);
                     $allPosts = [];
@@ -183,7 +183,7 @@ $canddate_id = $_SESSION['candd_id'];
                             </div>
                             <p></p>
                             <div class="row">
-                                <div class="col-md-12  font-weight-bold">
+                                <div class="col-md-12 font-weight-bolder">
 								<span class="m-0">1. You are required to bring this Roll No Slip along with your original Identity Card for identification. No other identification
 									documents like Passport, Driving License and Original Degrees are acceptable for identification, only original CNIC is
 								acceptable with Roll No Slip.</span>

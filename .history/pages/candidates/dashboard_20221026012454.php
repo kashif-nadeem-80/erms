@@ -27,7 +27,16 @@ include('includes/header.php');
                             
                     <p> <span style="font-size:x-large ; font-weight:bolder; padding-right: 80px;">
 
-                    Application Status </span> 
+                    Application Status </span> <span
+                            style="align-items:center ;">
+<?php  if ($status_c ='Accepted') {  ?>
+
+                            <img src="../../images/news1.gif" width="50px" height="50px">
+                             <a href="roll_no_slip.php" style="width:230px ; align-items: center;"
+                                class="btn  badge-pill badge-info shadow">Download Roll No Slip</a>
+
+                        <?php } ?>        
+                        </span> </p> 
 
 
                                     <hr class="shadow" style="border: 1px solid #007bff; width: 520px; ">
@@ -60,7 +69,7 @@ include('includes/header.php');
       join projects_posts as pp on p.post_id = pp.id
       join projects as pj on pj.id = pp.project_id
       where  ct.test_center_status =1
-      and c.id= '$candd_id'  order by p.status desc";
+      and c.id= '$candd_id' ";
 
       
       $runData = mysqli_query($connection,$query2);
@@ -100,18 +109,8 @@ include('includes/header.php');
                                             <?php } ?>
                                         </tbody>
 
+                                    </table>
 
-                                      </table>
-
-                                      <span>
-                          <?php  if ($status_c =='Accepted') {  ?>
-
-                            <img src="../../images/news1.gif" width="50px" height="50px">
-                             <a href="roll_no_slip.php" style="width:230px ; align-items: center;"
-                                class="btn  badge-pill badge-info shadow">Download Roll No Slip</a>
-
-                        <?php } ?>        
-                        </span> </p> 
                                 </div>
 
                             </div>

@@ -89,7 +89,7 @@ $canddate_id = $_SESSION['candd_id'];
                         INNER JOIN center_session AS cs ON cs.id = ac.session_id 
                         INNER JOIN test_centers AS t ON t.id = cs.center_id 
                         INNER JOIN candidates AS c ON c.id = cap.candidate_id 
-                        WHERE  c.id = '$canddate_id'";
+                        WHERE  c.id = '110'";
                         //ac.post_id IN ($posts_id) AND
                     $result = mysqli_query($connection,$query);
                     $allPosts = [];

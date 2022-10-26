@@ -144,7 +144,7 @@ $canddate_id = $_SESSION['candd_id'];
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-2">
-                                    <img class="float-right" src="<?php if($image != ''){ echo '../../images/candidates/profile picture/'.$image; }else{ echo '../../images/user.png'; } ?>" height="170px" width="160px">
+                                    <img class="float-right" src="<?php if($image != ''){ echo './images/candidates/profile picture/'.$image; }else{ echo '../../images/user.png'; } ?>" height="170px" width="160px">
                                 </div>
                             </div>
                             <p></p>

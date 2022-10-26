@@ -334,9 +334,9 @@ Apply Now
                                 <td colspan="3" class="text-center font-weight-bold text-danger"><===No Post to
                                     Apply ===>
                                     <br>
-                                    <hr class="shadow"> <img src="./images/news1.gif" width="50px" height="50px">
-                                    FFBL, FPCL & FML Apprenticeship Program Candidates can download Roll No Slip &nbsp;&nbsp;&nbsp;
-                                    <a href="online_registration.php" style="width:200px ; align-items: center;"
+                                    <hr class="shadow">
+                                    FFBL, FPCL & FML Apprenticeship Program Candidates can download Roll No Slip &sacute;
+                                    <a href="online_registration.php" style="width:300px ; align-items: center;"
                                 class="btn  badge-pill  badge-info shadow">Click to download </a>
                                 </td>
 
