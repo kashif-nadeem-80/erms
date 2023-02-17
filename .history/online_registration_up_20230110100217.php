@@ -19,15 +19,15 @@ session_start();
     </script>
     <?php
      include 'includes/css_links.php'; ?>
-    <title>UTS || Sign In</title>
-    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+    <title>UTS || Updates</title>
+    <link rel="shortcut icon" href="images/logo.png" >
   </head>
   <body style="padding-top: 70px; background: #e6e6e6; overflow-x: hidden; background-image: url(images/loginbg.jpg);">
-    <div class="row  bg-gradient-olive " style="padding-left:15px; background-color:rgb(25,60, 99);" >
+    <div class="row  bg-gradient-olive " style="padding-left:15px ;" >
       <div class="col-md-1"   ></div>
       <!-- <div class="col-md-7" > -->
         <img src="images/logo.png" width="70px" height="70px">   
-        <h3 style=" margin-top: 20px; margin-left: 10px; color: #FFFFFF; font-weight:400px" >Pakistan Bait ul Mal</h3>
+        <h3 style=" margin-top: 20px; margin-left: 10px; color: #FFFFFF; font-weight:400px" >Universal Testing Services</h3>
       </div>
       <!-- <div class="col-md-10  text-black-50"
         style="margin-top: 1%;  text-shadow: 0 1 2px #0000FF; font-family: time new roman;" >
@@ -35,28 +35,34 @@ session_start();
       </div> -->
     <!-- </div> -->
     <br>
+    <br><br><br><br>
     <div class="row" id="signIn">
       <div class="col-md-1"></div>
       <div class="col-md-10">
         <div class="container" >
-          <div class="card" style="border-radius:40px; ">
-            <div class="card-body"  >
+          <div class="card">
+            <div class="card-body align-content-center" >
+<br>
+
+            <h2 >
+            Relax ! Soon we let you know about "TEST" proceeding.
+            </h2>
               <!--<p style="margin-top: -10px; margin-bottom: 40px">Have an account | <b> Sign in </b></p>-->
-              <p  style="margin-top: 0px; margin-bottom: 20px; margin-left: 90px;">Have an account Or 
+              <!-- <p  style="margin-top: -10px; margin-bottom: 20px">Have an account Or 
               <a href="#" class="btn badge-pill badge-success shadow bg-gradient-info" class="blink"  
               style="font-size:large; font-weight:bold; line-height: 0.8; " onclick="registDiv()"> Register Here </a> 
             </p> 
               <form method="post" id="register_form">
-                <div class="row" >
-                                              
-                  <div class="col-md-3">
-                   <div class="form-group">
-                      <input type="text" class="form-control shadow"  
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <input type="text" class="form-control shadow"
                       data-inputmask="'mask': '99999-9999999-9'" placeholder="CNIC No"
                       maxlenght="15" name="candd_cnic" required>
                     </div>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                     <div class="form-group">
                       <input type="password" class="form-control shadow" placeholder="Password"
                       name="candd_pass" required>
@@ -67,10 +73,10 @@ session_start();
                       <input style="width:140px ;" type="submit" name="login" class="btn btn-info shadow" value="Sign In">
                     </div>
                   </div>
-                  
+                  <div class="col-md-1"></div>
                 </div>
-              </form>
-             
+              </form> -->
+              <br>
               <?php
               if (isset($_POST["login"]))
               {
@@ -90,7 +96,7 @@ session_start();
                     
                     if(isset($_SESSION["candd_id"]))
                     {
-                      echo "<script>window.location.href = 'pages/employee/dashboard.php'; </script>";
+                      echo "<script>window.location.href = 'pages/candidates/dashboard.php'; </script>";
                     }
                   }
                   else
@@ -104,10 +110,10 @@ session_start();
                 }
               }
               ?>
-              <div class="row">
-                <div class="col-md-7"></div>
-                <div class="col-md-2"><a href="forgot_password.php">Forgot Password ?</a></div>
-              </div>
+              <!-- <div class="row">
+                <div class="col-md-9"></div>
+                <div class="col-md-3"><a href="forgot_password.php">Forgot Password ?</a></div>
+              </div> -->
             </div>
           </div>
         </div>

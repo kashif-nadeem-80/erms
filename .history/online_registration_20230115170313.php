@@ -27,7 +27,7 @@ session_start();
       <div class="col-md-1"   ></div>
       <!-- <div class="col-md-7" > -->
         <img src="images/logo.png" width="70px" height="70px">   
-        <h3 style=" margin-top: 20px; margin-left: 10px; color: #FFFFFF; font-weight:400px" >Pakistan Bait ul Mal</h3>
+        <h3 style=" margin-top: 20px; margin-left: 10px; color: #FFFFFF; font-weight:400px" >Universal Testing Services</h3>
       </div>
       <!-- <div class="col-md-10  text-black-50"
         style="margin-top: 1%;  text-shadow: 0 1 2px #0000FF; font-family: time new roman;" >
@@ -90,7 +90,7 @@ session_start();
                     
                     if(isset($_SESSION["candd_id"]))
                     {
-                      echo "<script>window.location.href = 'pages/employee/dashboard.php'; </script>";
+                      echo "<script>window.location.href = 'pages/candidates/dashboard.php'; </script>";
                     }
                   }
                   else

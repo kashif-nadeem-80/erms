@@ -90,7 +90,7 @@ session_start();
                     
                     if(isset($_SESSION["candd_id"]))
                     {
-                      echo "<script>window.location.href = 'pages/employee/dashboard.php'; </script>";
+                      echo "<script>window.location.href = 'pages/candidates/dashboard.php'; </script>";
                     }
                   }
                   else
