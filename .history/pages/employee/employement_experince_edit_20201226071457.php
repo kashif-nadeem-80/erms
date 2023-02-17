@@ -9,8 +9,7 @@ include "includes/db.php";
                 <h4 class="m-0 text-dark">Edit Relevent Employement Record</h4>
                 </div><!-- /.col -->
                 <div class="col-md-6">
-           
-                <ol class="breadcrumb float-md-right">
+                    <ol class="breadcrumb float-md-right">
                         <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                         <li class="breadcrumb-item active">Edit Relevent Employement Record </li>
                     </ol>
